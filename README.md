@@ -1,3 +1,6 @@
+"In God I trust, all others I pen-test" - Binoj Koshy, cyber security expert
+
+
 esp = start/top of the stack / stack pointer
 ebp = bottom/base of the stack
 eip = holds index / instruction pointer / return addr pointer
@@ -70,3 +73,21 @@ info registers
 esp            0xbffff5d8
 
 x/s 0xbffff5d8 ==> content 
+
+
+```
+ char buffer[25];
+ scanf("%s", buffer);
+
+ The preceding code is vulnerable to buffer overflow. If you carefully notice, the buffer size has been set to 25 characters. However, what if the user enters data more than 25 characters? The buffer will simply overflow and the program execution will end abruptly.
+
+ What are fuzzers?
+In the preceding example, we had access to the source code, and we knew that the variable buffer can hold a maximum of 25 characters. So, in order to cause a buffer overflow, we can send 30, 40, or 50 characters as input. However, it's not always possible to have access to the source code of any given application. So, for an application whose source code isn't available, how would you determine what length of input should be sent to a particular parameter so that the buffer gets overflowed? This is where fuzzers come to the rescue. Fuzzers are small programs that send random inputs of various lengths to specified parameters within the target application and inform us the exact length of the input that caused the overflow and crash of the application.
+
+- Sagar Rahalkar, Nipun Jaswal - Metasploit Revealed _ Secrets of the Expert Pentester -  Build your Defense against Complex Attacks-Packt (2017) p 162
+```
+
+
+ShellCode: This is the machine language used to execute on the target system. Historically, it was used to execute a shell process, granting the attacker access to the system. So, ShellCode is a set of instructions a processor understands.
+
+Registers are placeholder memory variables that aid execution
