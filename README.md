@@ -2,7 +2,16 @@ esp = start/top of the stack / stack pointer
 ebp = bottom/base of the stack
 eip = holds index / instruction pointer / return addr pointer
 
+Intel :
+OPERATION DESTINATION, SOURCE
+Exemple :
 
+mov eax, 42
+AT&T :
+OPERATION SOURCE, DESTINATION
+Exemple :
+
+mov $42, %eax
 
 The instruction pointer holds the location of the next instruction, and increments itself after every instruction. So basically, the CPU reads the instruction pointer, fetches the next instruction, does it, increments the instruction pointer and then goes back to step one.
 
@@ -56,4 +65,8 @@ memset(writeme,0x90,12);
 We just “pad” our shellcode to increase its size so we can make a reasonable guess.
 - hack proofing ur network (2002) , chap 8, buffer overflow
 
+info registers
 
+esp            0xbffff5d8
+
+x/s 0xbffff5d8 ==> content 
