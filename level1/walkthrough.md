@@ -49,8 +49,8 @@ All defined functions:
 
 b.Ninja for run func:
 ```
-fwrite(0x8048570, 1, 0x13, stdout)  {"Good... Wait what?\n"}
-return system(0x8048584)  {"/bin/sh"}
+fwrite {"Good... Wait what?\n"}
+return system(/bin/sh)
 ```
 0x08048444 little endian : \x44\x84\x04\x08
 

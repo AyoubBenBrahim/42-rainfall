@@ -91,3 +91,47 @@ In the preceding example, we had access to the source code, and we knew that the
 ShellCode: This is the machine language used to execute on the target system. Historically, it was used to execute a shell process, granting the attacker access to the system. So, ShellCode is a set of instructions a processor understands.
 
 Registers are placeholder memory variables that aid execution
+
+
+
+(gdb) overflow the binary
+(gdb) info frame
+Stack level 0, frame at 0xbffff704:
+ Saved registers:
+  eip at 0xbffff700
+
+x/24wx $esp
+
+p/d eip - 121454
+
+
+  ret2libc
+  ROP
+
+  "Use code that’s already there"
+
+
+"
+Bypassing NX
+NX sets the stack memory region as non-executable
+the same way that Linux files have permissions, memory regions within a process also have permissions, read write execute
+before, if u had a shellcode in the stack u could execute it
+"
+https://youtu.be/F4SwLKQI6Vs
+
+
+Address space layout randomization (ASLR) = ASLR randomly arranges the address space positions of key data areas of a process, including the base of the executable and the positions of the stack, heap and libraries.
+
+attackers trying to execute return-to-libc attacks must locate the code to be executed, while other attackers trying to execute shellcode injected on the stack have to find the stack first.
+
+
+p $ebp - 0x4c
+
+define hook-stop
+
+>x/100wx $esp
+>x/10i $eip
+>end
+(gdb) ni
+
+(gdb) p /x $eax
