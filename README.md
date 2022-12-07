@@ -68,11 +68,7 @@ memset(writeme,0x90,12);
 We just “pad” our shellcode to increase its size so we can make a reasonable guess.
 - hack proofing ur network (2002) , chap 8, buffer overflow
 
-info registers
 
-esp            0xbffff5d8
-
-x/s 0xbffff5d8 ==> content 
 
 
 ```
@@ -94,16 +90,6 @@ Registers are placeholder memory variables that aid execution
 
 
 
-(gdb) overflow the binary
-(gdb) info frame
-Stack level 0, frame at 0xbffff704:
- Saved registers:
-  eip at 0xbffff700
-
-x/24wx $esp
-
-p/d eip - 121454
-
 
   ret2libc
   ROP
@@ -124,14 +110,3 @@ Address space layout randomization (ASLR) = ASLR randomly arranges the address s
 
 attackers trying to execute return-to-libc attacks must locate the code to be executed, while other attackers trying to execute shellcode injected on the stack have to find the stack first.
 
-
-p $ebp - 0x4c
-
-define hook-stop
-
->x/100wx $esp
->x/10i $eip
->end
-(gdb) ni
-
-(gdb) p /x $eax
