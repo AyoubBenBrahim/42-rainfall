@@ -110,3 +110,8 @@ Address space layout randomization (ASLR) = ASLR randomly arranges the address s
 
 attackers trying to execute return-to-libc attacks must locate the code to be executed, while other attackers trying to execute shellcode injected on the stack have to find the stack first.
 
+
+ROP
+ret2libc
+ret2plt
+stack pivoting

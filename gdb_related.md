@@ -80,3 +80,7 @@ shared library.
 
 This address is not the address to the fgets() function since it has not yet been resolved by the linker, but instead points back down into the PLT entry for fgets().
 
+
+
+
+GOT The Global Offset Table,
