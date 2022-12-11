@@ -84,3 +84,30 @@ This address is not the address to the fgets() function since it has not yet bee
 
 
 GOT The Global Offset Table,
+
+print instructions
+x/4i 0x45855
+
+
+call <adresse>
+; est un alias de
+PUSH EIP
+JMP <adresse>
+
+‘x/4xw $sp’ prints the four words (‘w’) of memory above the stack pointer 
+
+you could print the program counter in hex with
+p/x $pc
+or print the instruction to be executed next with
+x/i $pc
+
+
+(gdb) print system
+$2 = {<text variable, no debug info>} 0x8048360 <system@plt>
+
+
+r <<< "$(perl -e 'print "A"x200')"
+
+
+- كتزيد لقدام
++ كترجع للور

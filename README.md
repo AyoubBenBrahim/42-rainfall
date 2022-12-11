@@ -1,6 +1,16 @@
 "In God I trust, all others I pen-test" - Binoj Koshy, cyber security expert
 
 
+read all the articles in the blog hackndo
+
+https://beta.hackndo.com/about/
+
+this videos are a good start
+https://www.youtube.com/watch?v=1S0aBV-Waeo
+https://www.youtube.com/watch?v=Uk-xv8uxiJo
+
+
+
 esp = start/top of the stack / stack pointer
 ebp = bottom/base of the stack
 eip = holds index / instruction pointer / return addr pointer
