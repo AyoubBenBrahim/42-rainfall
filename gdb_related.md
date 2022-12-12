@@ -8,8 +8,11 @@ p $ebp - 0x4c
 define hook-stop
 
 >x/100wx $esp
+
 >x/10i $eip
+
 >end
+
 (gdb) ni
 
 (gdb) p /x $eax
@@ -71,10 +74,12 @@ That would print out only one element of the array, x[0].
 In some cases, you might wish to examine memory at a given address, rather than via the name of a variable. GDB provides the x (“examine”) command for this purpose. 
 
 (gdb) p/x y
+
 will display the variable y in hex format instead of decimal. Other commonly used formats are c for character, s for string, and f for floating-point.
 
 
 08048360<fgets@plt>
+
 the call to fgets() leads to 8048360, which is the PLT jump table entry for fgets(). As we can see, there is an indirect jump to the address stored at 0x804a000 in the preceding disassembled code output. This address is a GOT (Global offset table) entry that holds the address to the actual fgets() function in the libc
 shared library.
 
@@ -89,10 +94,17 @@ print instructions
 x/4i 0x45855
 
 
+
+ 
+ une fois que le programme rentre dans la fonction, il va devoir se souvenir d’où il vient. Et pour cela, il va falloir qu’il enregistre le registre EIP
+ c’est que l’instruction call est un alias des deux instructions suivantes :
+
 call <adresse>
 ; est un alias de
 PUSH EIP
 JMP <adresse>
+
+ 
 
 ‘x/4xw $sp’ prints the four words (‘w’) of memory above the stack pointer 
 
