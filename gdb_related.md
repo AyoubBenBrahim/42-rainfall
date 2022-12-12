@@ -115,10 +115,12 @@ JMP <adresse>
  ==
  
 
-‘x/4xw $sp’ prints the four words (‘w’) of memory above the stack pointer 
+‘x/4xw $sp’ 
+ prints the four words (‘w’) of memory above the stack pointer 
 
 you could print the program counter in hex with
 p/x $pc
+ 
 or print the instruction to be executed next with
 x/i $pc
 
