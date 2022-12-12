@@ -60,13 +60,17 @@ GDB is now at line 7 of the program, meaning that line 7 has not been executed y
 
 
 int *x;
+
 ...
+
 x = (int *) malloc(25*sizeof(int));
 
 If you wanted to print out the array in GDB, you could not type
 (gdb) p x
+
 This would simply print the address of the array. Nor could you type
 (gdb) p *x
+
 That would print out only one element of the array, x[0]. 
 
 
@@ -85,25 +89,30 @@ shared library.
 
 This address is not the address to the fgets() function since it has not yet been resolved by the linker, but instead points back down into the PLT entry for fgets().
 
-
+==
 
 
 GOT The Global Offset Table,
 
 print instructions
+
 x/4i 0x45855
 
 
+==
 
- 
  une fois que le programme rentre dans la fonction, il va devoir se souvenir d’où il vient. Et pour cela, il va falloir qu’il enregistre le registre EIP
  c’est que l’instruction call est un alias des deux instructions suivantes :
 
 call <adresse>
+ 
 ; est un alias de
+ 
 PUSH EIP
+ 
 JMP <adresse>
 
+ ==
  
 
 ‘x/4xw $sp’ prints the four words (‘w’) of memory above the stack pointer 
