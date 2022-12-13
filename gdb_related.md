@@ -131,6 +131,11 @@ $2 = {<text variable, no debug info>} 0x8048360 <system@plt>
 
 r <<< "$(perl -e 'print "A"x200')"
 
+define hook-stop
+disass main
+r i
+x/40wx $esp
+end
 
 - كتزيد لقدام
 + كترجع للور
