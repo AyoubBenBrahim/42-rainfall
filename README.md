@@ -6,6 +6,7 @@ read all the articles in the blog hackndo
 https://beta.hackndo.com/about/
 
 this videos are a good start
+
 https://www.youtube.com/watch?v=1S0aBV-Waeo
 https://www.youtube.com/watch?v=Uk-xv8uxiJo
 
