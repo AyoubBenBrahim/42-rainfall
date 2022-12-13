@@ -14,11 +14,15 @@ https://www.youtube.com/watch?v=Uk-xv8uxiJo
 
 
 esp = start/top of the stack / stack pointer
+
 ebp = bottom/base of the stack
+
 eip = holds index / instruction pointer / return addr pointer
 
 Intel :
+
 OPERATION DESTINATION, SOURCE
+
 Exemple :
 
 mov eax, 42
