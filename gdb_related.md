@@ -137,5 +137,10 @@ r i
 x/40wx $esp
 end
 
+(gdb) x/s  0xbffff77c
+0xbffff77c:      'A' <repeats 44 times>
+(gdb) p (char *) 0xbffff77c
+$18 = 0xbffff77c 'A' <repeats 44 times>
+
 - كتزيد لقدام
 + كترجع للور
