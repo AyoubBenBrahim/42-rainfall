@@ -146,4 +146,11 @@ end
 $18 = 0xbffff77c 'A' <repeats 44 times>
 
 ناقص كتزيد لقدام
+ 
 زائد كترجع للور
+ 
+ x/20s $esp
+
+x : eXamine
+20s : 20 values in string
+$esp : for register ESP (Stack Pointer)
