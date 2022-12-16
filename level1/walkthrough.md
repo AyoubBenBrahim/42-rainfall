@@ -109,6 +109,8 @@ cyclic -l taaa
 
 76
 
+r <<< $(python -c 'print ("A" * 76 + "B")')
+
 
 
 
