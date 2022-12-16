@@ -86,3 +86,29 @@ To understand what a payload does, let's consider a real-world example. A milita
 Similarly, payloads in the Metasploit Framework let us decide what action is to be performed on the target system once the exploit is successful. 
 
 - Metasploit Revealed _ Secrets of the Expert Pentester -  Build your Defense against Complex Attacks-Packt Publishing (2017)
+
+==
+to detect the offset u could also use the cyclic script from the pawn tools 
+
+https://github.com/arthaud/python3-pwntools/blob/master/pwnlib/commandline/cyclic.py
+
+cyclic 100
+aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa
+
+run <<< "aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa"
+
+Segmentation fault.
+
+eip value 0x61616174 
+
+hex 0x61616174 to text is: "aaat" but since LSB it's "taaa"
+
+using cyclic again:
+
+cyclic -l taaa
+
+76
+
+
+
+
