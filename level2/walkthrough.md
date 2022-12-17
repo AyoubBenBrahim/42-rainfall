@@ -23,6 +23,7 @@ Segmentation fault.
 0x61616175
 
 unhex 61616175 | rev ; echo ""
+
 uaaa
 
 cyclic -l uaaa
