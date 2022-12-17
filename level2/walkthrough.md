@@ -49,6 +49,7 @@ eip at 0xbffff71c
 (gdb) x/40wx $esp
 
 0xbffff6b0:     0xbffff6cc      0x00000000      0x00000000      0xb7e5ec73
+
 0xbffff6c0:     0x080482b5      0x00000000      0x00ca0000      0x41414141
 
 (gdb) p/x 0xbffff6c0 + 12
