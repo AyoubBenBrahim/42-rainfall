@@ -111,6 +111,32 @@ cyclic -l taaa
 
 r <<< $(python -c 'print ("A" * 76 + "B")')
 
+===
 
+(gdb) disas main
+
+ 0x08048490 <+16>:    call   0x8048340 <gets@plt>
+ 
+ 0x08048495 <+21>:    leave
+ 
+ break just after gets: 0x08048495
+ 
+  run <<< "AAAAAAAAAAAAAAAAAAAA"
+  
+  eip at 0xbffff72c
+  
+  (gdb) x/30wx $esp
+  
+0xbffff6d0:     0xbffff6e0      0x0000002f      0xbffff72c      0xb7fd0ff4
+
+0xbffff6e0:     0x41414141
+ 
+(gdb) x/c 0xbffff6e0
+
+0xbffff6e0:     65 'A'
+
+(gdb) p/d 0xbffff72c - 0xbffff6e0
+
+$2 = 76
 
 
