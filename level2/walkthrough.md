@@ -72,5 +72,12 @@ python3 -c 'import struct; print(struct.pack(">L", 0x44840408))'
 
 
 
+define hook-stop
+
+x/40wx $esp
+
+x/2i $eip
+
+end
 
 
