@@ -154,3 +154,10 @@ $18 = 0xbffff77c 'A' <repeats 44 times>
 x : eXamine
 20s : 20 values in string
 $esp : for register ESP (Stack Pointer)
+ 
+ 
+ 
+ ==
+ "The PLT is the glue that holds a library function to a binary."
+ 
+ https://web.archive.org/web/20120622232123/http://www.mentalcases.net/texts/security/TextSectionStudy.txt
