@@ -16,6 +16,9 @@ a playlist
 
 https://www.youtube.com/playlist?list=PLHUKi1UlEgOIc07Rfk2Jgb5fZbxDPec94
 
+this doc
+
+https://web.archive.org/web/20120622232123/http://www.mentalcases.net/texts/security/TextSectionStudy.txt
 
 
 esp = start/top of the stack / stack pointer
