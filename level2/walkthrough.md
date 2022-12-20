@@ -118,6 +118,8 @@ cat /home/user/level3/.pass
 
 how to get the heap addr : \x08\x04\xa0\x08
 
+https://tc.gts3.org/cs6265/2019/tut/tut09-01-heap.html
+
  ltrace ./level2
  
  "pass a str" = = 0x0804a008 
