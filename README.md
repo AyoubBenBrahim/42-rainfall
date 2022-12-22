@@ -1,7 +1,7 @@
 "In God I trust, all others I pen-test" - Binoj Koshy, cyber security expert
 
 
-read all the articles in the blog hackndo
+read all the articles in the hackndo blog
 
 https://beta.hackndo.com/about/
 
@@ -16,7 +16,9 @@ a playlist
 
 https://www.youtube.com/playlist?list=PLHUKi1UlEgOIc07Rfk2Jgb5fZbxDPec94
 
-this doc
+this docs
+
+https://bitvijays.github.io/LFC-BinaryExploitation.html
 
 https://web.archive.org/web/20120622232123/http://www.mentalcases.net/texts/security/TextSectionStudy.txt
 
