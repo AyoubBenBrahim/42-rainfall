@@ -1,3 +1,48 @@
+
+
+Getting inputs from stdin:
+
+The other option is to pipe the output of a command to the stdin of the program
+
+$> python -c 'print("\xef\xbe\xad\xde")' | ./program
+
+In gdb we can use the bash process substitution <(cmd) trick:
+
+(gdb) run < <(python -c 'print("\xef\xbe\xad\xde")')
+
+This way is much quicker than effectively creating a named pipe and branch your program on it. Creating the named pipe outside of gdb requires a lot of unnecessary steps where you have it instantly with the previous technique.
+
+Note also that, some people are using <<$(cmd) like this:
+
+(gdb) run <<< $(python -c 'print("\xef\xbe\xad\xde")')
+
+But, this last technique seems to filter out all NULL bytes (for whatever reason), so you should prefer the first one (especially if you want to pass NULL bytes).
+
+https://reverseengineering.stackexchange.com/questions/13928/managing-inputs-for-payload-injection
+
+https://bitvijays.github.io/LFC-BinaryExploitation.html#appendix-i-gdb-basics
+
+Keep the stdin open after injection
+
+$> (cat ./mycommands.txt; cat) | ./program
+
+Or, if you want a shell command:
+
+$> (python -c 'print("\xef\xbe\xad\xde")'; cat) | ./program
+
+https://bitvijays.github.io/LFC-BinaryExploitation.html#appendix-i-gdb-basics
+
+
+
+
+
+
+
+
+
+
+
+
 (gdb) info breakpoints
 
 (gdb) info func
