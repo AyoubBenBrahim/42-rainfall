@@ -61,7 +61,7 @@ $1 = 0xbffff6cc
 
 0xbffff6cc:     0x41414141
 
-(gdb) p/d 0xbffff71c - 0xbffff6cc
+(gdb) p/d 0xbffff71c - 0xbffff6cc. (also p/d $ebp+4 - (0xbffff6a0+12) )
 
 $3 = 80
 
