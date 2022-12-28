@@ -1,0 +1,17 @@
+func p()
+
+080484e2  fflush(stdout)
+
+080484ed  void var_50
+
+080484ed  gets(&var_50)
+
+08048505  if ((__return_addr & 0xb0000000) != 0xb0000000)
+
+0804852d      puts(&var_50)
+
+0804853e      return strdup(&var_50)
+
+08048516  printf("(%p)\n", __return_addr)
+
+08048522  _exit(1)
