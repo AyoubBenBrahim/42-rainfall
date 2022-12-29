@@ -18,3 +18,14 @@ wiki
 
 %n is a special format specifier which instead of printing something causes printf() to load the variable pointed by the corresponding argument with a value equal to the number of characters that have been printed by printf()  before the occurrence of %n
 https://www.geeksforgeeks.org/g-fact-31/
+
+
+#include<stdio.h>
+
+int main()
+{
+    int c;
+    printf("123456789A%n     \n", &c);
+    printf("%d", c);
+    return 0;
+}
