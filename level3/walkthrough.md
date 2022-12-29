@@ -16,4 +16,4 @@ Uncontrolled format string
 
 wiki
 
-%n is a special format specifier which instead of printing something causes printf() to load the variable pointed by the corresponding argument with a value equal to the number of characters that have been printed by printf() 
+%n is a special format specifier which instead of printing something causes printf() to load the variable pointed by the corresponding argument with a value equal to the number of characters that have been printed by printf()  before the occurrence of %n
