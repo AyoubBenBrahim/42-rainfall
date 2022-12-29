@@ -1,4 +1,13 @@
-etrieve five parameters from the stack and display them as 8-digit padded hexa
+Uncontrolled format string
+
+"One may also write arbitrary data to arbitrary locations using the %n format token, which commands printf() and similar functions to write the number of bytes formatted to an address stored on the stack."
+
+wiki
+
+fuzzing or fuzz testing = testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program = The program then crashes
+
+
+retrieve five parameters from the stack and display them as 8-digit padded hexa
 
 level3@RainFall:~$ ./level3
 
