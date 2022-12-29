@@ -23,11 +23,14 @@ https://www.geeksforgeeks.org/g-fact-31/
 #include<stdio.h>
 
 int main()
+
 {
+
     int c;
     printf("123456789A%n     \n", &c);
     printf("%d", c);
     return 0;
+    
 }
 
 - Geeks4Geeks
