@@ -33,7 +33,7 @@ int main()
     
 }
 
-- Geeks4Geeks
+* Geeks4Geeks
 
 "the ‘%n’ parameter, which writes the number of bytes already printed, into a variable of our choice. The address of the variable is given to the format function by placing an integer pointer as parameter onto the stack."
 https://cs155.stanford.edu/papers/formatstring-1.2.pdf
