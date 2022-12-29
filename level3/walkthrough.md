@@ -31,6 +31,10 @@ int main()
     printf("%d", c);
     return 0;
     
+    // output
+    // 123456789A     
+    // 10
+    
 }
 
 * Geeks4Geeks
