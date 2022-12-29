@@ -1,3 +1,5 @@
+etrieve five parameters from the stack and display them as 8-digit padded hexa
+
 level3@RainFall:~$ ./level3
 
 %08x %08x %08x %08x %08x
