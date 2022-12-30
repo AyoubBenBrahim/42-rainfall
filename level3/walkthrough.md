@@ -66,7 +66,11 @@ AAAA 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520
 
 from [the stanford article](https://cs155.stanford.edu/papers/formatstring-1.2.pdf):
 ```
-a way to directly address a stack parameter from within the format string, The direct parameter access is controlled by the ‘$’ qualifier.
+a way to directly address a stack parameter from within the format string[...]
+The direct parameter access is controlled by the ‘$’ qualifier.
+printf ("%6$d\n", 6, 5, 4, 3, 2, 1);
+Prints ‘1’, because the ‘6$’ explicitly addresses the 6th parameter on the
+stack. 
 ```
 so in our case
 ```
