@@ -64,7 +64,7 @@ AAAA 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520
 
 41414141(the 4th hex value), 41 represent A so 4 is the offset of our input string in the stack.
 
-from [the stanford article] (https://cs155.stanford.edu/papers/formatstring-1.2.pdf):
+from [the stanford article](https://cs155.stanford.edu/papers/formatstring-1.2.pdf):
 
 a way to directly address a stack parameter from within the format string, The direct parameter access is controlled by the ‘$’ qualifier.
 
