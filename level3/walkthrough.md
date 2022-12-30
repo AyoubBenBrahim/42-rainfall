@@ -1,6 +1,8 @@
 
 
-fuzzing or fuzz testing = testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program = The program then crashes
+"fuzzing or fuzz testing = testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program = The program then crashes"
+
+"one key thing in hacking is about giving non intended inputs to programs and observe its behavior"
 
 retrieve five parameters from the stack and display them as 8-digit padded hexa
 
