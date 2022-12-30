@@ -26,6 +26,8 @@ format string vuln
 
 https://owasp.org/www-community/attacks/Format_string_attack
 
+stanford article from 2001
+
 https://cs155.stanford.edu/papers/formatstring-1.2.pdf
 
 
