@@ -5,6 +5,9 @@ cmp    $0x1025544,%eax
 x 0x8049810
 0x8049810 <m>:	0x00000000
 
+objdump -t ./level4 | grep bss
+08049810 g     O .bss	00000004              m
+
 ```
 cmp var m with `p 0x1025544 = 16930116`
 
