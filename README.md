@@ -53,8 +53,11 @@ The value of the instruction pointer itself can be set to some arbitrary locatio
 
 
 there are three pertinent registers to a stack.
+
 ■ EIP The extended instruction pointer. This points to the code that you are currently executing. When you call a function, this gets saved on the stack for later use.
+
 ■ ESP The extended stack pointer. This points to the current position on the stack and allows things to be added and removed from the stack using push and pop operations or direct stack pointer manipulations.
+
 ■ EBP The extended base pointer. This register should stay the same throughout the lifetime of the function. It serves as a static point for referencing stack-based information like vari- ables and data in a function using offsets. This almost always points to the top of the stack for a function.
 
 
@@ -70,6 +73,7 @@ Fuzzing is a process of sending deliberately malformed data to a program in orde
 or errors in the application. When performed by those in the software exploitation community,
 fuzzing usually focuses on discovery of bugs that can be exploited to allow an attacker to run their own code, 
 and along with binary and source code analysis fuzzing is one of the primary ways in which exploitable software bugs are discovered.
+
 https://resources.infosecinstitute.com/topic/intro-to-fuzzing/
 
 
@@ -85,18 +89,22 @@ https://beta.hackndo.com/technique-du-canari-bypass/
 Since we examined the stack of a compiled program, we know that to take con- trol of the EIP register, we must overwrite the 8 bytes of the buffer, then 4 bytes of a saved EBP register, and then 4 bytes of saved EIP.
 This means that we have 12 bytes of filler that must be filled with something. In this case, we’ve chosen to use 0x90, which is the hex value for the Intel NOP operation.This is an imple- mentation of a NOP sled, but we won’t need to slide in this case because we know where we need to go and can avoid it.This is just filler that we can use to overwrite the buffer and EBP on the stack.We set this up using the memset() C library call to set the first 12 bytes of the buffer to 0x90.
 memset(writeme,0x90,12);
+
 - hack proofing ur network (2002) , chap 8, buffer overflow
 
  push $0x808e248, which pushes the address of the string “EXAMPLE\n” onto the stack.To see what’s at that address, we can type the following from the (gdb) prompt: x/s 0x808e248.
+ 
 - hack proofing ur network (2002) , chap 8, buffer overflow
 
  we can’t have the address of the string without it being in memory; and without the address, we can’t get to the string. 
  In this case we do a jmp/call: when you execute a call, the address of the next instruction is pushed onto the stack.
  The call pushes the address of the next instruction onto the stack (the next instruction down is actually a string). But the call actually doesn’t know the dif- ference.
+ 
 - hack proofing ur network (2002) , chap 8, buffer overflow
 
  Now that we know where the stack starts, how can we exactly pinpoint where our shellcode is going to be on the stack? Simple: we don’t!
 We just “pad” our shellcode to increase its size so we can make a reasonable guess.
+
 - hack proofing ur network (2002) , chap 8, buffer overflow
 
 
@@ -123,6 +131,7 @@ Registers are placeholder memory variables that aid execution
 
 
   ret2libc
+  
   ROP
 
   "Use code that’s already there"
