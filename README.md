@@ -152,6 +152,9 @@ attackers trying to execute return-to-libc attacks must locate the code to be ex
 
 
 ROP
+
 ret2libc
+
 ret2plt
+
 stack pivoting
