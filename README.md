@@ -22,6 +22,12 @@ https://bitvijays.github.io/LFC-BinaryExploitation.html
 
 https://web.archive.org/web/20120622232123/http://www.mentalcases.net/texts/security/TextSectionStudy.txt
 
+format string vuln
+
+https://owasp.org/www-community/attacks/Format_string_attack
+
+https://cs155.stanford.edu/papers/formatstring-1.2.pdf
+
 
 esp = start/top of the stack / stack pointer
 
