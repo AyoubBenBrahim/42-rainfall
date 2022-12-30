@@ -39,14 +39,13 @@ Intel :
 
 OPERATION DESTINATION, SOURCE
 
-Exemple :
+Exemple : mov eax, 42
 
-mov eax, 42
 AT&T :
-OPERATION SOURCE, DESTINATION
-Exemple :
 
-mov $42, %eax
+OPERATION SOURCE, DESTINATION
+
+Exemple : mov $42, %eax
 
 The instruction pointer holds the location of the next instruction, and increments itself after every instruction. So basically, the CPU reads the instruction pointer, fetches the next instruction, does it, increments the instruction pointer and then goes back to step one.
 
