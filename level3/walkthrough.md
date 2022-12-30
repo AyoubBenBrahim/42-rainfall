@@ -92,7 +92,9 @@ b209ea91ad69ef36f2cf0fcbbc24c739fd10464cf545b20bea8572ebdc3c36fa
 ```
 "A" * 60 <===> "%60c"
 
-[ressource](https://medium.com/@gurdeeps158/exploit-format-string-vulnerability-in-printf-6740d9ff057e)
+ressource
+[1](https://medium.com/@gurdeeps158/exploit-format-string-vulnerability-in-printf-6740d9ff057e)
+[2](https://infosecwriteups.com/exploiting-format-string-vulnerability-97e3d588da1b)
 
 
 
