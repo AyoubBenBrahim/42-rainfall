@@ -168,3 +168,29 @@ level5@RainFall:~$ ldd level5
 	libc.so.6 => /lib/i386-linux-gnu/libc.so.6 (0xb7e4e000)
 	/lib/ld-linux.so.2 (0x80000000)
 ```
+
+
+PLT vs GOT
+
+```
+.plt
+This is the PLT, or Procedure Linkage Table. These are stubs that look up the addresses in the .got.plt section, and either jump to the right address, or trigger the code in the linker to look up the address. (If the address has not been filled in to .got.plt yet.)
+
+.got.plt
+This is the GOT for the PLT. It contains the target addresses (after they have been looked up)
+
+TL;DR: Those starting with .plt contain stubs to jump to the target, those starting with .got are tables of the target addresses.
+
+	call   0x8048300 <puts@plt>
+	
+	Let’s step through the process until we get to the actual puts function.
+	
+	0x8048300 <puts@plt>:	jmp    DWORD PTR ds:0x804a00c
+	
+	We’re in the PLT, and we see that we’re performing a jmp, but this is not a typical jmp. This is what a jmp to a function pointer would look like. The processor will dereference the pointer, then jump to resulting address.
+
+https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html
+```
+
+`A stub is a controllable replacement for an Existing Dependency`
+
