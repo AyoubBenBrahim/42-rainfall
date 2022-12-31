@@ -1,3 +1,5 @@
+GOT PLT exploit -> https://ir0nstone.gitbook.io/notes/types/stack/aslr/plt_and_got
+
 
 ```
 (gdb) set height 30
