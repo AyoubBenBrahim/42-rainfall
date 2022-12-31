@@ -39,8 +39,6 @@ int main()
     
 }
 
-* Geeks4Geeks
-
 "the ‘%n’ parameter, which writes the number of bytes already printed, into a variable of our choice. The address of the variable is given to the format function by placing an integer pointer as parameter onto the stack."
 https://cs155.stanford.edu/papers/formatstring-1.2.pdf
 
@@ -72,6 +70,18 @@ printf ("%6$d\n", 6, 5, 4, 3, 2, 1);
 Prints ‘1’, because the ‘6$’ explicitly addresses the 6th parameter on the
 stack. 
 ```
+```
+Overwriting memory at any locationPermalink
+In printf(), %n is a special case format specifier. Instead of being replaced by a function argument, %n will cause the number of characters written so far to be stored into the corresponding function argument.
+
+For example, the following code will store the integer 5 into the variable num_char.
+
+int num_char; 
+printf("11111%n", &num_char);
+
+https://vickieli.dev/binary%20exploitation/format-string-vulnerabilities/#overwriting-memory-at-any-location
+```
+
 so in our case
 ```
 level3@RainFall:~$ ./level3
