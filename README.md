@@ -194,3 +194,5 @@ https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html
 
 `A stub is a controllable replacement for an Existing Dependency`
 
+PLT - GOT https://www.youtube.com/watch?v=NdlvRRUBG5Y&ab_channel=SourceMeetsSink
+
