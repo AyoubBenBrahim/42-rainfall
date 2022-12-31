@@ -210,7 +210,9 @@ Well, as we said, it doesn't know where puts actually is - so it jumps to the PL
 If there is a GOT entry for puts, it jumps to the address stored there.
 If there isn't a GOT entry, it will resolve it and jump there.
 
-The GOT is a massive table of addresses; these addresses are the actual locations in memory of the libc functions. puts@got, for example, will contain the address of puts in memory. When the PLT gets called, it reads the GOT address and redirects execution there. If the address is empty, it coordinates with the ld.so (also called the dynamic linker/loader) to get the function address and stores it in the GOT.
+The GOT is a massive table of addresses; these addresses are the actual locations in memory of the libc functions.
+puts@got, for example, will contain the address of puts in memory. When the PLT gets called, it reads the GOT address and redirects execution there. 
+If the address is empty, it coordinates with the ld.so (also called the dynamic linker/loader) to get the function address and stores it in the GOT.
 ```
 https://ir0nstone.gitbook.io/notes/types/stack/aslr/plt_and_got
 
