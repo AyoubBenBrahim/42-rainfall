@@ -33,6 +33,8 @@ Dump of assembler code for function exit@plt:
 
 "Let’s check the dereference and follow the jmp. Note that the pointer is in the .got.plt"
 
+"The PLT resolves actual locations in libc of functions you use and stores them in the GOT"
+
 ```
 (gdb) x 0x8049838
 0x8049838 <exit@got.plt>:	0x080483d6
