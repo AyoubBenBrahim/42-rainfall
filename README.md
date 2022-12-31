@@ -158,3 +158,13 @@ ret2libc
 ret2plt
 
 stack pivoting
+
+ldd prints the shared objects (shared libraries) required by each
+       program or shared object specified on the command line.
+       
+```
+level5@RainFall:~$ ldd level5
+	linux-gate.so.1 =>  (0xb7fff000)
+	libc.so.6 => /lib/i386-linux-gnu/libc.so.6 (0xb7e4e000)
+	/lib/ld-linux.so.2 (0x80000000)
+```
