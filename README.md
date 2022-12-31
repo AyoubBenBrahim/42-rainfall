@@ -16,6 +16,10 @@ a playlist
 
 https://www.youtube.com/playlist?list=PLHUKi1UlEgOIc07Rfk2Jgb5fZbxDPec94
 
+RazviOverflow 
+
+https://www.youtube.com/playlist?list=PLchBW5mYosh_F38onTyuhMTt2WGfY-yr7
+
 this docs
 
 https://bitvijays.github.io/LFC-BinaryExploitation.html
