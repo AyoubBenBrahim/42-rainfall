@@ -71,7 +71,8 @@ Prints ‘1’, because the ‘6$’ explicitly addresses the 6th parameter on t
 stack. 
 ```
 ```
-Overwriting memory at any locationPermalink
+Overwriting memory at any location
+
 In printf(), %n is a special case format specifier. Instead of being replaced by a function argument, %n will cause the number of characters written so far to be stored into the corresponding function argument.
 
 For example, the following code will store the integer 5 into the variable num_char.
