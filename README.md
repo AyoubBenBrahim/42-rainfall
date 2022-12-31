@@ -200,7 +200,7 @@ https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html
 
 PLT - GOT https://www.youtube.com/watch?v=NdlvRRUBG5Y&ab_channel=SourceMeetsSink
 
-`The purpose of dynamic linking is that binaries do not have to carry all the code necessary to run within them - this reduces their size substantially.
+```The purpose of dynamic linking is that binaries do not have to carry all the code necessary to run within them - this reduces their size substantially.
 Due to the way ASLR works, these addresses need to be resolved every time the binary is run. Enter the PLT and GOT
 
 When you call puts() in C and compile it as an ELF executable, it is not actually puts() - instead, it gets compiled as puts@plt
@@ -209,7 +209,7 @@ Well, as we said, it doesn't know where puts actually is - so it jumps to the PL
 If there is a GOT entry for puts, it jumps to the address stored there.
 If there isn't a GOT entry, it will resolve it and jump there.
 
-The GOT is a massive table of addresses; these addresses are the actual locations in memory of the libc functions. puts@got, for example, will contain the address of puts in memory. When the PLT gets called, it reads the GOT address and redirects execution there. If the address is empty, it coordinates with the ld.so (also called the dynamic linker/loader) to get the function address and stores it in the GOT.`
+The GOT is a massive table of addresses; these addresses are the actual locations in memory of the libc functions. puts@got, for example, will contain the address of puts in memory. When the PLT gets called, it reads the GOT address and redirects execution there. If the address is empty, it coordinates with the ld.so (also called the dynamic linker/loader) to get the function address and stores it in the GOT.```
 https://ir0nstone.gitbook.io/notes/types/stack/aslr/plt_and_got
 
 
