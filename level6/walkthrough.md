@@ -10,6 +10,34 @@ b at
    0x080484c5 <+73>:	call   0x8048340 <strcpy@plt>
 => 0x080484ca <+78>:	mov    0x18(%esp),%eax
 ```
+
+```
+   0x0804847c <+0>:	push   %ebp
+   0x0804847d <+1>:	mov    %esp,%ebp
+   0x0804847f <+3>:	and    $0xfffffff0,%esp
+   0x08048482 <+6>:	sub    $0x20,%esp
+   0x08048485 <+9>:	movl   $0x40,(%esp)
+   0x0804848c <+16>:	call   0x8048350 <malloc@plt>
+   0x08048491 <+21>:	mov    %eax,0x1c(%esp)
+
+allocate addr in the heap, store it in eax, then move it to $esp+0x1c
+
+(gdb) x $esp+0x1c
+      0xbffff6bc:	0x0804a008 [HEAP]
+
+   0x08048495 <+25>:	movl   $0x4,(%esp)
+   0x0804849c <+32>:	call   0x8048350 <malloc@plt>
+   0x080484a1 <+37>:	mov    %eax,0x18(%esp)
+   
+
+allocate addr in the heap, store it in eax, then move it to 0x18(%esp)
+
+   0x080484a5 <+41>:	mov    $0x8048468,%edx
+   0x080484aa <+46>:	mov    0x18(%esp),%eax
+
+   make that addr point to fun m()-puts-
+```
+
 send 64 chars and inspect the heap
 
 (gdb) info proc mappings
