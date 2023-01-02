@@ -64,8 +64,8 @@ Program received signal SIGSEGV, Segmentation fault.
 ```
 
 ```
-unhex 61616173
-aaas%
+unhex 61616173 | rev
+saaa
 
 cyclic -l saaa
 72
