@@ -61,6 +61,7 @@ level7@RainFall:~$ ltrace ./level7 AAAAAAAA BBBBBBBB
 ```
 after strcpy2
 ```
+(gdb) disass 0x8048400
 puts@plt:
    0x08048400 <+0>:	jmp    *0x8049928
    
