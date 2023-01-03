@@ -30,7 +30,14 @@ $6 = 68
  
  argv1 write at the heap pointed by p/x 0x804a010+8 = 0x804a018
  argv2                              0x804a038
-  
+
+confirmed by ltrace
+
+level7@RainFall:~$ ltrace ./level7 AAAAAAAA BBBBBBBB
+
+  strcpy(0x0804a018, "AAAAAAAA")
+  strcpy(0x0804a038, "BBBBBBBB")
+
  ```
   
   ```
@@ -40,6 +47,9 @@ $6 = 68
     Dump of assembler code for function puts@plt:
    0x08048400 <+0>:	jmp    *0x8049928
   ```
+  
+  address of puts `0x8049928` and address of m() function `0x080484f4`
+  
   
   
   
