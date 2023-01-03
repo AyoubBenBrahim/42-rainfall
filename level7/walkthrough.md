@@ -41,7 +41,13 @@ $6 = 68
   
  ```
   
+  ```
+   0x080485f7 <+214>:	call   0x8048400 <puts@plt>
   
+  (gdb) disass 0x8048400
+    Dump of assembler code for function puts@plt:
+   0x08048400 <+0>:	jmp    *0x8049928
+  ```
   
   
   
