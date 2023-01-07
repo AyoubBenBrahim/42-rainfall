@@ -4,7 +4,6 @@ level1@RainFall:~$ ./level1 <<< $(python -c 'print("a" * 76)')
 Illegal instruction (core dumped)
 
 
-
  the first step in exploitation is to find out the offset. Metasploit aids this process by using two different tools, called pattern_create and pattern_offset.
 
  in order to build a working exploit, we need to figure out the exact amount of these characters. Metasploit's inbuilt tool called the pattern_create does this for us in no time. It generates patterns that can be supplied instead of A characters and, based on the value which overwrote the EIP register, we can easily figure out the exact number of bytes using its counterpart tool pattern_offset.
@@ -39,7 +38,11 @@ Segmentation fault.
 ```
 
 ```
-The cause of crash was that the application failed to process the address of the next instruction, located at 41414141. The value 41 is the hexadecimal representation of character A. What actually happened is that our input, extending through the boundary of the buffer, went on to overwrite the EIP register. Therefore, since the address of the next instruction was overwritten, the program tried to find the address of the next instruction at 41414141, which was not a valid address. Hence, it crashed.
+The cause of crash was that the application failed to process the address of the next instruction,
+located at 41414141. The value 41 is the hexadecimal representation of character A.
+What actually happened is that our input, extending through the boundary of the buffer, 
+went on to overwrite the EIP register. Therefore, since the address of the next instruction was overwritten,
+the program tried to find the address of the next instruction at 41414141, which was not a valid address. Hence, it crashed.
 
 - Metasploit Revealed _ Secrets of the Expert Pentester (2017) pp 316
 ```
