@@ -85,3 +85,10 @@ Program received signal SIGINT, Interrupt.
 login
 $ pwd
 /home/user/level8
+```
+
+
+
+The SCAS instruction is used to scan a string (SCAS = SCan A String). It compares the content of the accumulator (AL, AX, or EAX) against the current value pointed at by ES:[EDI].
+
+When used together with the REPNE prefix (REPeat while Not Equal), SCAS scans the string searching for the first string element which is equal to the value in the accumulator. 
