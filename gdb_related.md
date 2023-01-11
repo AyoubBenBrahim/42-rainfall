@@ -206,3 +206,14 @@ $esp : for register ESP (Stack Pointer)
  "The PLT is the glue that holds a library function to a binary."
  
  https://web.archive.org/web/20120622232123/http://www.mentalcases.net/texts/security/TextSectionStudy.txt
+ 
+ ==
+ MyFunction2(10, 5, 2);
+ 
+ 
+|  2 | [ebp + 16] (3rd function argument)
+|  5 | [ebp + 12] (2nd argument)
+| 10 | [ebp + 8]  (1st argument)
+| RA | [ebp + 4]  (return address)
+ 
+ 
