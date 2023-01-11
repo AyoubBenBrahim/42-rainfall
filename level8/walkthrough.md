@@ -94,7 +94,9 @@ The SCAS instruction is used to scan a string (SCAS = SCan A String). It compare
 When used together with the REPNE prefix (REPeat while Not Equal), SCAS scans the string searching for the first string element which is equal to the value in the accumulator. 
 
 
+Commentary
 
+```
 
    0x08048575 <+17>:	mov    SERVICE**********************************,%ecx
    0x0804857b <+23>:	mov    AUTH***************************************,%edx
@@ -174,7 +176,7 @@ SERVICE********************************** = strdup(INPUT********)
 if (AUTH*************************************** + 0x20)
    system("/bin/sh")
 
-```
+
 test is a non-destructive and, it doesnt return the result of the operation but it sets the flags
 test eax, eax is the same as and eax, eax  except that it doesnt store the result in eax
 
