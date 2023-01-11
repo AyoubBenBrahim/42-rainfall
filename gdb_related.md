@@ -223,3 +223,11 @@ $esp : for register ESP (Stack Pointer)
 | RA | [ebp + 4]  (return address)
  
  
+ 
+ access argv
+ ```
+(gdb) x/x $ebp+0xc or $ebp+12
+0xbffff704:     0x03
+(gdb) x *0xbffff704
+0xbffff903:     0x41
+```
