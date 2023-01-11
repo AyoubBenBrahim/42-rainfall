@@ -34,19 +34,9 @@ https://bitvijays.github.io/LFC-BinaryExploitation.html#appendix-i-gdb-basics
 
 
 
-
-
-
-
-
-
-
-
-
 (gdb) info breakpoints
 
 (gdb) info func
-All defined functions:
 
 p $ebp - 0x4c
 
@@ -64,16 +54,15 @@ define hook-stop
 
 
 
-
 (gdb) overflow the binary
+
 (gdb) info frame
-Stack level 0, frame at 0xbffff704:
- Saved registers:
-  eip at 0xbffff700
+
+ Saved registers: eip at 0xbffff700
 
 x/24wx $esp
 
-p/d eip - 121454
+p/d eip - xyz
 
 
 
@@ -88,9 +77,11 @@ If you do not exit GDB when you change and recompile your code, the next time yo
 
 
 (gdb) break foo
+
 Breakpoint 2 at
 
 You can delete that breakpoint either with
+
 (gdb) clear foo
 
 (gdb) delete 2
@@ -111,9 +102,11 @@ int *x;
 x = (int *) malloc(25*sizeof(int));
 
 If you wanted to print out the array in GDB, you could not type
+
 (gdb) p x
 
 This would simply print the address of the array. Nor could you type
+
 (gdb) p *x
 
 That would print out only one element of the array, x[0]. 
@@ -161,25 +154,33 @@ JMP <adresse>
  
 
 ‘x/4xw $sp’ 
+ 
  prints the four words (‘w’) of memory above the stack pointer 
 
 you could print the program counter in hex with
+ 
 p/x $pc
  
 or print the instruction to be executed next with
+ 
 x/i $pc
 
 
 (gdb) print system
+ 
 $2 = {<text variable, no debug info>} 0x8048360 <system@plt>
 
 
 r <<< "$(perl -e 'print "A"x200')"
 
 define hook-stop
+      
 disass main
+      
 r i
+      
 x/40wx $esp
+      
 end
 
 (gdb) x/s  0xbffff77c
@@ -197,7 +198,9 @@ $18 = 0xbffff77c 'A' <repeats 44 times>
  x/20s $esp
 
 x : eXamine
+ 
 20s : 20 values in string
+ 
 $esp : for register ESP (Stack Pointer)
  
  
@@ -212,8 +215,11 @@ $esp : for register ESP (Stack Pointer)
  
  
 |  2 | [ebp + 16] (3rd function argument)
-|  5 | [ebp + 12] (2nd argument)
-| 10 | [ebp + 8]  (1st argument)
+ 
+|  5 | [ebp + 12] (2nd argument)   ..... argv1
+ 
+| 10 | [ebp + 8]  (1st argument)    .... argc
+ 
 | RA | [ebp + 4]  (return address)
  
  
