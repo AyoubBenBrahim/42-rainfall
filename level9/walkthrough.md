@@ -1,4 +1,18 @@
+```
+(gdb) set hei 40
+(gdb) info func
 
+
+0x08048530  operator new(unsigned int)
+0x08048530  _Znwj@plt
+
+0x080486f6  N::N(int)
+0x080486f6  N::N(int)
+0x0804870e  N::setAnnotation(char*)
+0x0804873a  N::operator+(N&)
+0x0804874e  N::operator-(N&)
+
+```
 
 ```
 (gdb) heap
