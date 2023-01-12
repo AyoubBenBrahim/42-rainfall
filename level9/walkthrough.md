@@ -14,6 +14,9 @@
 
 ```
 
+for c++ calling convention, the this pointer is passed in ECX 
+https://en.wikipedia.org/wiki/X86_calling_conventions#x86-64_calling_conventions
+
 ```
 (gdb) heap
 0x804a000:      0x00000000      0x00000071      0x08048848      0x41414141
@@ -26,4 +29,11 @@
 0x804a070:      0x00000005      0x00000071      0x08048848      0x00000000
 0x804a080:      0x00000000      0x00000000      0x00000000      0x00000000
 0x804a090:      0x00000000      0x00000000      0x00000000      0x00000000
+```
+
+offset 108
+
+```
+(gdb) p/d 0x804a078 - 0x804a00c
+$3 = 108
 ```
