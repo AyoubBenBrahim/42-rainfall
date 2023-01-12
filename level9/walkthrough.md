@@ -37,3 +37,17 @@ offset 108
 (gdb) p/d 0x804a078 - 0x804a00c
 $3 = 108
 ```
+
+```
+
+=> 0x08048684 <+144>:	mov    0x14(%esp),%eax
+
+(gdb) x $eax
+0x8048848 <_ZTV1N+8>:	 ":\207\004\bN\207\004\b1N"
+
+(gdb) x *$eax
+0x804873a <_ZN1NplERS_>
+
+(gdb) x $edx
+0x804873a <_ZN1NplERS_>
+```
