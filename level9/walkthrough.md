@@ -14,8 +14,7 @@
 
 ```
 
-for c++ calling convention, the this pointer is passed in ECX 
-https://en.wikipedia.org/wiki/X86_calling_conventions#x86-64_calling_conventions
+
 
 ```
 (gdb) heap
