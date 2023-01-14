@@ -40,10 +40,10 @@ $3 = 108
 => 0x08048684 <+144>:	mov    0x14(%esp),%eax
 
 (gdb) x $eax
-0x8048848 <_ZTV1N+8>:	 ":\207\004\bN\207\004\b1N"
+0x8048848 <_ZTV1N+8>:	 
 
 (gdb) x *$eax
-0x804873a <_ZN1NplERS_>
+0x804873a <_ZN1NplERS_> 0x08048848 === calls the operator overload == 0x0804873a  N::operator+(N&)
 
 (gdb) x $edx
 0x804873a <_ZN1NplERS_>
@@ -190,36 +190,41 @@ It loads the value of member variable at offset 0x68 for both of the objects pas
 adds them and returns the sum as the result.
 
 
-int32_t *eax= operator new(0x6c)
-N::N (eax, 5)
-int32_t *eax_1 = operator new(0x6c)
-N::N( eax_1, 6)
-N::setAnnotation( eax, argv[1])
-return (**eax_1)(eax_1, eax)
+*OBJECT_1 = operator new(108) // 0x6c
+
+N::N (OBJECT_1, 5)
+
+*OBJECT_2 = operator new(108)
+
+N::N( OBJECT_2, 6)
+
+N::setAnnotation( OBJECT_1, argv[1])
+
+return (**OBJECT_2)(OBJECT_2, OBJECT_1)
 
 
-it creates a new block of memory of size 0x6c bytes using the operator new function and stores its address
-in the variable "eax".
+it creates a new block of memory of size 108 bytes using the operator new function and stores its address
+in the variable "OBJECT_1".
 
-it calls the constructor of the class N passing in the address of the block of memory stored in "eax" and
+it calls the constructor of the class N passing in the address of the block of memory stored in "OBJECT_1" and
 an integer value of 5.
 
-it creates another new block of memory of size 0x6c bytes using the operator new function and stores its
-address in the variable "eax_1".
+it creates another new block of memory of size 108 bytes using the operator new function and stores its
+address in the variable "OBJECT_2".
 
-it calls the constructor of the class N passing in the address of the block of memory stored in "eax_1"
+it calls the constructor of the class N passing in the address of the block of memory stored in "OBJECT_2"
 and an integer value of 6.
 
 it calls the setAnnotation member function of class N passing in the address of the block of memory
-stored in "eax" and the first argument passed to the program (argv[1]).
+stored in "OBJECT_1" and the first argument passed to the program (argv[1]).
 
-it returns the result of calling the operator() member function of the object pointed to by "eax_1"
- passing in the address of the block of memory stored in "eax_1" and the address of the block of 
- memory stored in "eax".
+it returns the result of calling the operator() member function of the object pointed to by "OBJECT_2"
+passing in the address of the block of memory stored in "OBJECT_2" and the address of the block of 
+memory stored in "OBJECT_1".
 
-It is difficult to say exactly what the program does without more context and knowledge
-of the specific classes and functions being used, but it seems to be creating two objects of
-class N and passing them to some other function which then calls a member function on those objects.
+it seems to be creating two objects of class N and passing them to some other function which 
+then calls a member function on those objects.
+
   
 ```
   
