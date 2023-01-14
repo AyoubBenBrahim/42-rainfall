@@ -101,6 +101,26 @@ Breakpoint 3, 0x0804867c in main ()
 0x804a060:	0x6a414141	0x5299580b	0x732f2f68	0x622f6868
 0x804a070:	0xe3896e69	0x80cdc931	0x0804a00c	0x00000000
 
+
+=> 0x08048693 <+159>:	call   *%edx
+
+-------------R----------
+eax            0x804a078	134520952
+ecx            0x804a00c	134520844
+edx            0x804a010	134520848
+ebx            0x804a078	134520952
+esp            0xbffff670	0xbffff670
+ebp            0xbffff698	0xbffff698
+esi            0x0	0
+edi            0x0	0
+eip            0x8048693	0x8048693 <main+159>
+
+
+(gdb) ni
+0x0804a010 in ?? ()
+(gdb) ni
+0x0804a011 in ?? ()
+
 ```
 
 
