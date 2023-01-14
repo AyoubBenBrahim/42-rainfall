@@ -83,6 +83,9 @@ Breakpoint 3, 0x0804867c in main ()
 
 ```
 
+
+
+
 the follwing are chatGPT comments:
 
 ```
@@ -181,6 +184,10 @@ The instruction at 0x08048749 adds the values in EDX and EAX, and stores the res
 This function appears to be an operator overload for the '+' operator for class 'N'.
 It loads the value of member variable at offset 0x68 for both of the objects passed as arguments,
 adds them and returns the sum as the result.
+
+
+return *(arg2 + 0x68) + *(arg1 + 0x68) // 104
+
 ```
 
 ```
