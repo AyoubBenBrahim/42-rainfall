@@ -80,16 +80,8 @@ Breakpoint 3, 0x0804867c in main ()
 0x804a050:	0x41414141	0x41414141	0x41414141	0x41414141
 0x804a060:	0x6a414141	0x5299580b	0x732f2f68	0x622f6868
 0x804a070:	0xe3896e69	0x80cdc931	0x0804a00c	0x00000000
+
 ```
-
-
-
-
-
-
-
-
-
 
 
 
@@ -110,8 +102,9 @@ Instruction at 0x08048604 loads the value 1 into the memory location pointed by 
 which is the argument to the call to _exit@plt at 0x0804860b.
 
 An instruction at 0x08048617 calls _Znwj@plt which is a memory allocation function.
+```
 
-
+```
  assembler code for function _ZN1N13setAnnotationEPc:
    0x0804870e <+0>:     push   %ebp
    0x0804870f <+1>:     mov    %esp,%ebp
@@ -156,9 +149,9 @@ The instruction at 0x08048730 loads the value of EDX into [ESP], the first argum
 
 The instruction at 0x08048733 calls the memcpy@plt function, passing the three arguments on the stack.
 This probably copies a block of memory.
+```
 
-
-
+```
 assembler code for function  N::operator+(N&):
    0x0804873a <+0>:     push   %ebp
    0x0804873b <+1>:     mov    %esp,%ebp
@@ -188,8 +181,9 @@ The instruction at 0x08048749 adds the values in EDX and EAX, and stores the res
 This function appears to be an operator overload for the '+' operator for class 'N'.
 It loads the value of member variable at offset 0x68 for both of the objects passed as arguments,
 adds them and returns the sum as the result.
+```
 
-
+```
 *OBJECT_1 = operator new(108) // 0x6c
 
 N::N (OBJECT_1, 5)
