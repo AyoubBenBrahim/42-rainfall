@@ -186,8 +186,16 @@ It loads the value of member variable at offset 0x68 for both of the objects pas
 adds them and returns the sum as the result.
 
 
+
+
+```
+
+```
 return *(arg2 + 0x68) + *(arg1 + 0x68) // 104
 
+level9@RainFall:~$ ./level9 AAAA
+level9@RainFall:~$ echo $?
+11
 ```
 
 ```
