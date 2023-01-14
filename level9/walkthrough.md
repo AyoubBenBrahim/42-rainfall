@@ -83,7 +83,7 @@ Breakpoint 3, 0x0804867c in main ()
 
 ```
 
-
+the follwing are chatGPT comments:
 
 ```
    0x080485fe <+10>:    cmpl   $0x1,0x8(%ebp)
