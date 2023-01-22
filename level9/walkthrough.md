@@ -37,6 +37,8 @@ level9@RainFall:~$ ./level9 AAAA
 level9@RainFall:~$ echo $?
 11
 ```
+5 + 6 = 11
+
 via gdb
 
 ```
