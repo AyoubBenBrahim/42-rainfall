@@ -188,7 +188,6 @@ An instruction at 0x08048617 calls _Znwj@plt which is a memory allocation functi
    0x08048738 <+42>:    leave
    0x08048739 <+43>:    ret
 This appears to be x86 assembly code for a function named "_ZN1N13setAnnotationEPc" which is likely written in C++.
- Some observations can be made:
 
 Subtracts 0x18 from the ESP, which probably means it is allocating 0x18 bytes of space on the stack.
 
@@ -214,7 +213,6 @@ the second argument for the next function call.
 The instruction at 0x08048730 loads the value of EDX into [ESP], the first argument for the next function call.
 
 The instruction at 0x08048733 calls the memcpy@plt function, passing the three arguments on the stack.
-This probably copies a block of memory.
 ```
 
 ```
@@ -230,7 +228,7 @@ assembler code for function  N::operator+(N&):
    0x0804874c <+18>:    ret
 
 This appears to be x86 assembly code for a C++ member function named "N::operator+",
-which is likely an operator overload for the '+' operator for a class 'N'. Some observations can be made:
+which is likely an operator overload for the '+' operator for a class 'N'.
 
 The instruction at 0x0804873d loads the value of the first argument passed to the function
 (a pointer to an object of class N) into EAX.
@@ -244,7 +242,6 @@ The instruction at 0x08048746 loads the value of the member variable at offset 0
 
 The instruction at 0x08048749 adds the values in EDX and EAX, and stores the result back in EAX.
 
-This function appears to be an operator overload for the '+' operator for class 'N'.
 It loads the value of member variable at offset 0x68 for both of the objects passed as arguments,
 adds them and returns the sum as the result.
 ```
@@ -284,7 +281,6 @@ memory stored in "OBJECT_1".
 
 it seems to be creating two objects of class N and passing them to some other function which 
 then calls a member function on those objects.
-
   
 ```
   
