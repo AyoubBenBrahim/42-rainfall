@@ -15,6 +15,51 @@
 ```
 
 ```
+=> 0x08048684 <+144>:	mov    0x14(%esp),%eax
+
+(gdb) x $eax
+0x8048848 <_ZTV1N+8>:	 
+
+(gdb) x *$eax
+0x804873a <_ZN1NplERS_> 0x08048848 === calls the operator overload == 0x0804873a  N::operator+(N&)
+
+(gdb) x $edx
+0x804873a <_ZN1NplERS_>
+```
+
+a call to EDX is direfferenced to a call to operator overload(+)
+```
+return *(arg2 + 0x68) + *(arg1 + 0x68) // 104
+```
+can be verified
+```
+level9@RainFall:~$ ./level9 AAAA
+level9@RainFall:~$ echo $?
+11
+```
+via gdb
+
+```
+(gdb) b *main+159
+Breakpoint 1 at 0x8048693
+
+(gdb) run AAAA
+
+(gdb) x/60wx 0x804a000
+0x804a000:	0x00000000	0x00000071	0x08048848	0x41414141
+0x804a010:	0x00000000	0x00000000	0x00000000	0x00000000
+0x804a020:	0x00000000	0x00000000	0x00000000	0x00000000
+0x804a030:	0x00000000	0x00000000	0x00000000	0x00000000
+0x804a040:	0x00000000	0x00000000	0x00000000	0x00000000
+0x804a050:	0x00000000	0x00000000	0x00000000	0x00000000
+0x804a060:	0x00000000	0x00000000	0x00000000	0x00000000
+0x804a070:	0x00000005	0x00000071	0x08048848	0x00000000
+
+(gdb) x 0x08048848
+0x8048848 <_ZTV1N+8>:	0x0804873a
+```
+
+```
 (gdb) heap
 0x804a000:      0x00000000      0x00000071      0x08048848      0x41414141
 0x804a010:      0x00000000      0x00000000      0x00000000      0x00000000
@@ -35,19 +80,6 @@ offset 108
 $3 = 108
 ```
 
-```
-
-=> 0x08048684 <+144>:	mov    0x14(%esp),%eax
-
-(gdb) x $eax
-0x8048848 <_ZTV1N+8>:	 
-
-(gdb) x *$eax
-0x804873a <_ZN1NplERS_> 0x08048848 === calls the operator overload == 0x0804873a  N::operator+(N&)
-
-(gdb) x $edx
-0x804873a <_ZN1NplERS_>
-```
 
 ```
 
@@ -224,14 +256,6 @@ The instruction at 0x08048749 adds the values in EDX and EAX, and stores the res
 This function appears to be an operator overload for the '+' operator for class 'N'.
 It loads the value of member variable at offset 0x68 for both of the objects passed as arguments,
 adds them and returns the sum as the result.
-```
-
-```
-return *(arg2 + 0x68) + *(arg1 + 0x68) // 104
-
-level9@RainFall:~$ ./level9 AAAA
-level9@RainFall:~$ echo $?
-11
 ```
 
 ```
