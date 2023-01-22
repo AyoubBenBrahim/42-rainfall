@@ -42,7 +42,7 @@ level9@RainFall:~$ echo $?
 via gdb
 
 ```
-(gdb) b *main+159
+(gdb) b *main+159 // call   *%edx
 Breakpoint 1 at 0x8048693
 
 (gdb) run AAAA
@@ -59,6 +59,11 @@ Breakpoint 1 at 0x8048693
 
 (gdb) x 0x08048848
 0x8048848 <_ZTV1N+8>:	0x0804873a
+
+(gdb) i r
+eax            0x804a078	134520952
+ecx            0x41414141	1094795585
+edx            0x804873a	134514490
 ```
 
 ```
