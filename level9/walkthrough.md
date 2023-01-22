@@ -92,11 +92,6 @@ End of assembler dump.
 eax            0x804a078	134520952
 ecx            0x804a00c	134520844
 edx            0x804a010	134520848
-ebx            0x804a078	134520952
-esp            0xbffff670	0xbffff670
-ebp            0xbffff698	0xbffff698
-esi            0x0	0
-edi            0x0	0
 eip            0x8048693	0x8048693 <main+159>
 
 (gdb) ni
@@ -127,11 +122,6 @@ Breakpoint 3, 0x0804867c in main ()
 eax            0x804a078	134520952
 ecx            0x804a00c	134520844
 edx            0x804a010	134520848
-ebx            0x804a078	134520952
-esp            0xbffff670	0xbffff670
-ebp            0xbffff698	0xbffff698
-esi            0x0	0
-edi            0x0	0
 eip            0x8048693	0x8048693 <main+159>
 
 
