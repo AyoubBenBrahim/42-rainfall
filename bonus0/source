@@ -17,14 +17,12 @@ Dump of assembler code for function main:
    0x080485ca <+38>:	leave
    0x080485cb <+39>:	ret
    
-   This is the assembly code for the main function of a program. The first instruction, 
-   "push %ebp", pushes the current value of the base pointer (EBP) onto the stack.
-   The next instruction, "mov %esp,%ebp", moves the current value of the stack pointer (ESP)
-   into the base pointer (EBP). This sets up the stack frame for the function.
+sets up the stack frame for the function.
 
 The next instruction, "and $0xfffffff0,%esp", performs a bitwise and operation 
 on the stack pointer with the value 0xfffffff0. This is typically used to align
 the stack pointer to a 16-byte boundary, which is required for some processor architectures.
+
 The instruction "sub $0x40,%esp" subtracts 0x40 (64 in decimal) from the stack pointer,
 allocating space on the stack for local variables.
 
@@ -51,19 +49,12 @@ The instruction "mov $0x0,%eax" moves the value 0x0 into the EAX register.
 
 The instruction "leave" restores the stack and frame pointer to their values before 
 the function was called, effectively destroying the stack frame.
-
 The instruction "ret" returns control to the calling function.
-
-Overall, this assembly code sets up a stack frame, calls two functions,
-"pp" and "puts" and then exits the main function.
-
-
-
 
 
 the previous code calls function pp, comment it as well
 
-0x0804851e <+0>:	push   %ebp
+   0x0804851e <+0>:	push   %ebp
    0x0804851f <+1>:	mov    %esp,%ebp
    0x08048521 <+3>:	push   %edi
    0x08048522 <+4>:	push   %ebx
@@ -105,61 +96,85 @@ the previous code calls function pp, comment it as well
    0x080485a1 <+131>:	pop    %edi
    0x080485a2 <+132>:	pop    %ebp
    0x080485a3 <+133>:	ret
-   
-This is the assembly code for a function named "pp". The first instruction, "push %ebp", 
-pushes the current value of the base pointer (EBP) onto the stack. The next instruction,
-"mov %esp,%ebp", moves the current value of the stack pointer (ESP) into the base pointer (EBP).
-This sets up the stack frame for the function.
-
-The next two instructions, "push %edi" and "push %ebx", push the values of the EDI and EBX registers
-onto the stack, saving their current values for later use.
-
-The instruction "sub $0x50,%esp" subtracts 0x50 (80 in decimal) from the stack pointer,
-allocating space on the stack for local variables.
-
-The instruction "movl $0x80486a0,0x4(%esp)" moves the value 0x80486a0 into
-memory location 4 bytes above the current stack pointer.
-
-The instruction "lea -0x30(%ebp),%eax" loads the effective address of memory 0x30 bytes
-below the current base pointer into the EAX register.
-
-The instruction "mov %eax,(%esp)" moves the value stored in EAX into the memory location
-pointed to by the current stack pointer.
-
-Then the instruction "call 0x80484b4 <p>" calls a function named "p" located at memory address 0x80484b4.
-
-The instruction "movl $0x80486a0,0x4(%esp)" and "lea -0x1c(%ebp),%eax", "mov %eax,(%esp)",
-"call 0x80484b4 <p>" repeat the same as before but with different memory address.
-
-The instruction "lea -0x30(%ebp),%eax" loads the effective address of memory 0x30 bytes
-below the current base pointer into the EAX register.
-
-The instruction "mov %eax,0x4(%esp)" moves the value stored in EAX into 
-the memory location 4 bytes above the current stack pointer.
-
-The instruction "mov 0x8(%ebp),%eax" moves the value stored at memory location 8 bytes
-above the current base pointer into the EAX register.
-
-The instruction "mov %eax,(%esp)" moves the value stored in EAX into the memory 
-location pointed to by the current stack pointer.
-
-Then the instruction "call 0x80483a0 strcpy@plt" calls the function strcpy located
-at memory address 0x80483a0. The "@plt" suffix indicates that this is a call to a procedure 
-linkage table entry rather than a direct call to the strcpy function.
-
-The instruction "mov $0x80486a4,%ebx" moves the value 0x80486a4 into the EBX register.
-
-The instruction "mov 0x8(%ebp),%eax" moves the value stored at memory location 
-8 bytes above the current base pointer into the EAX register.
-
-The instruction "movl $0xffffffff,-0x3c(%ebp)" moves the value 0xffffffff into memory
-location 0x3c bytes below the current base pointer.
-
-The instruction "mov %eax,%edx" moves the value stored in EAX into EDX register.
-
-The instruction "mov $0x0,%eax
+  
 
 
+The function starts by pushing the base pointer (EBP) onto the stack and moving the stack pointer (ESP)
+into the base pointer. This sets up the stack frame for the function.
+
+The next instruction pushes the EDI and EBX registers onto the stack. These registers are being saved 
+so that their values can be restored later.
+
+The function then subtracts 0x50 (80 in decimal) from the stack pointer, which makes room for local variables on the stack.
+
+The instruction movl $0x80486a0,0x4(%esp) pushes the address 0x80486a0 onto the stack.
+
+The instruction lea -0x30(%ebp),%eax loads the address of the local variable located 
+at offset -0x30 from the base pointer into the EAX register.
+
+The instruction mov %eax,(%esp) moves the address of the local variable from EAX to the top of the stack.
+
+The instruction call 0x80484b4 <p> calls the function 'p'
+
+The instruction movl $0x80486a0,0x4(%esp) again pushes the address 0x80486a0 onto the stack.
+
+The instruction lea -0x1c(%ebp),%eax loads the address of the local variable located 
+at offset -0x1c from the base pointer into the EAX register.
+
+The instruction mov %eax,(%esp) moves the address of the local variable from EAX to the top of the stack.
+
+The instruction call 0x80484b4 <p> again calls the function 'p'
+
+The instruction lea -0x30(%ebp),%eax loads the address of the local variable located 
+at offset -0x30 from the base pointer into the EAX register.
+
+The instruction mov %eax,0x4(%esp) move the address of the local variable from EAX to the top of the stack.
+
+The instruction mov 0x8(%ebp),%eax move the address of the local variable from EBP to the EAX register.
+
+The instruction call 0x80483a0 strcpy@plt calls the function 'strcpy'
+
+The instruction mov $0x80486a4,%ebx moves the address 0x80486a4 to the EBX register
+
+The instruction mov 0x8(%ebp),%eax move the address of the local variable from EBP to the EAX register
+
+The instruction movl $0xffffffff,-0x3c(%ebp) move the value 0xffffffff to a local variable at offset -0x3c.
+
+The instruction repnz scas %es:(%edi),%al searches for a null character in the source string
+and compares it with the value in the AL register.
+
+The instruction add 0x8(%ebp),%eax add the address of the local variable from EBP to the EAX register
+
+The instruction movzwl (%ebx),%edx move the contents of the memory location at the address in EBX (0x80486a4)
+into the EDX register, but only the lower 16 bits.
+
+The instruction mov %dx,(%eax) move the lower 16 bits of the EDX register to the memory location at the address in EAX.
+
+The instruction lea -0x1c(%ebp),%eax loads the address of the local variable located
+at offset -0x1c from the base pointer into the EAX register.
+
+The instruction mov %eax,0x4(%esp) move the address of the local variable from EAX to the top of the stack.
+
+The instruction mov 0x8(%ebp),%eax move the address of the local variable from EBP to the EAX register.
+
+The instruction call 0x8048390 strcat@plt calls the function 'strcat'
+
+The instruction add $0x50,%esp adds 0x50 to the stack pointer, effectively releasing
+the space allocated for local variables on the stack.
+
+The instruction pop %ebx pops the value of EBX from the stack and restores it to its original value.
+
+The instruction pop %edi pops the value of EDI from the stack and restores it to its original value.
+
+The instruction pop %ebp pops the value of EBP from the stack and restores it to its original value.
+
+The instruction ret returns control to the calling function.
+
+It is not clear what the function 'p' does, so it is not possible to comment on it's purpose.
+
+Overall, this code appears to be performing string manipulation by copying one string to another,
+and then concatenating the two strings together. It also saves and restores certain registers,
+and manages stack memory for local variables.
 
 
 
@@ -236,6 +251,30 @@ The instruction "lea -0x1008(%ebp),%eax" loads the effective address of memory 0
 the current base pointer into the EAX register as before.
 
 The instruction "movl $0x14,0x8(%esp)" moves the value 0x14 into memory location 8
+
+
+
+
+void p(char* string, char* buffer) {
+    puts(string);
+    read(buffer, 4096);
+    char* newline_pos = strchr(buffer, '\n');
+    if (newline_pos) {
+        *newline_pos = '\0';
+    }
+    strncpy(buffer, 0x14);
+}
+
+void pp() {
+    char buffer1[4096], buffer2[16];
+    p("string1", buffer1);
+    p("string2", buffer2);
+    strcpy(buffer1, buffer2);
+    char *string_pointer = "string3";
+    buffer1[strlen(buffer2)] = *string_pointer;
+    strcat(buffer1, buffer2);
+}
+
 
 
 
