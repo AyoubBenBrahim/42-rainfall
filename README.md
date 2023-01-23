@@ -201,21 +201,45 @@ https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html
 PLT - GOT https://www.youtube.com/watch?v=NdlvRRUBG5Y&ab_channel=SourceMeetsSink
 
 ```
-The purpose of dynamic linking is that binaries do not have to carry all the code necessary to run within them - this reduces their size substantially.
+The purpose of dynamic linking is that binaries do not have to carry all the code necessary to run within them, 
+this reduces their size substantially.
 Due to the way ASLR works, these addresses need to be resolved every time the binary is run. Enter the PLT and GOT
 
-When you call puts() in C and compile it as an ELF executable, it is not actually puts() - instead, it gets compiled as puts@plt
+When you call puts() in C and compile it as an ELF executable, it is not actually puts() - instead,
+it gets compiled as puts@plt
 
-Well, as we said, it doesn't know where puts actually is - so it jumps to the PLT entry of puts instead. From here, puts@plt does some very specific things:
+Well, as we said, it doesn't know where puts actually is - so it jumps to the PLT entry of puts instead.
+From here, puts@plt does some very specific things:
 If there is a GOT entry for puts, it jumps to the address stored there.
 If there isn't a GOT entry, it will resolve it and jump there.
 
 The GOT is a massive table of addresses; these addresses are the actual locations in memory of the libc functions.
-puts@got, for example, will contain the address of puts in memory. When the PLT gets called, it reads the GOT address and redirects execution there. 
-If the address is empty, it coordinates with the ld.so (also called the dynamic linker/loader) to get the function address and stores it in the GOT.
+puts@got, for example, will contain the address of puts in memory. When the PLT gets called, it reads the GOT address
+and redirects execution there. 
+If the address is empty, it coordinates with the ld.so (also called the dynamic linker/loader) to get the function 
+address and stores it in the GOT.
 ```
 https://ir0nstone.gitbook.io/notes/types/stack/aslr/plt_and_got
 
+
+```
+PLT and GOT are two different memory regions in a compiled ELF (Executable and Linkable Format) binary file,
+used for different purposes.
+
+PLT stands for Procedure Linkage Table, and is used as a mechanism to perform dynamic linking of shared 
+library functions. When a program calls a function that is defined in a shared library, 
+the call is not resolved at compile-time, but at run-time. The PLT is used as a mechanism to redirect the call
+to the actual location of the function in the shared library. Each function in a shared library has a corresponding
+entry in the PLT, which contains the code to perform the dynamic linking.
+
+GOT stands for Global Offset Table, and is used to store the memory addresses of global variables and functions.
+When a program is loaded into memory, the linker uses the GOT to resolve the memory addresses of global variables
+and functions. The GOT is also used to implement lazy binding of shared library functions.
+This is a technique used to avoid resolving the memory addresses of shared library functions until they are actually called.
+
+In summary, the PLT is used for dynamic linking of shared library functions, while the GOT is used for
+resolving the memory addresses of global variables and functions, and for implementing lazy binding of shared library functions.
+```
 
 
 
