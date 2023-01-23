@@ -1,4 +1,10 @@
 
+```
+bonus0@RainFall:~$ objdump -t bonus0 | grep text
+080484b4 g     F .text	0000006a              p
+0804851e g     F .text	00000086              pp
+080485a4 g     F .text	00000028              main
+```
 
 ```
 bonus0@RainFall:~$ ./bonus0
