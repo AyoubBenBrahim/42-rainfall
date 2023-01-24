@@ -255,26 +255,6 @@ The instruction "movl $0x14,0x8(%esp)" moves the value 0x14 into memory location
 
 
 
-void p(char* string, char* buffer) {
-    puts(string);
-    read(buffer, 4096);
-    char* newline_pos = strchr(buffer, '\n');
-    if (newline_pos) {
-        *newline_pos = '\0';
-    }
-    strncpy(buffer, 0x14);
-}
-
-void pp() {
-    char buffer1[4096], buffer2[16];
-    p("string1", buffer1);
-    p("string2", buffer2);
-    strcpy(buffer1, buffer2);
-    char *string_pointer = "string3";
-    buffer1[strlen(buffer2)] = *string_pointer;
-    strcat(buffer1, buffer2);
-}
-
 
 
 
