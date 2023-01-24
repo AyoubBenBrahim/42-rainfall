@@ -59,3 +59,16 @@ offset
                 +       b1[20]      +                            
                 +-------------------+ -48  0x30    
 ```
+manually
+```
+pp
+=> 0x08048559 <+59>:	call   0x80483a0 <strcpy@plt>
+
+(gdb) x/40wx $esp
+0xbffff660:	0xbffff6d6	0xbffff688	0x00000000	0xb7fd0ff4
+0xbffff670:	0xbffff6be	0xbffff6bf	0x00000001	0xb7ec3c49
+0xbffff680:	0xbffff6bf	0xbffff6be	0x41414141	0x00000000
+0xbffff690:	0x00000000	0x00000000	0x00000000	0x42424242
+
+0xbffff69c - 0xbffff688 = 20
+```
