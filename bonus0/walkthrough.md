@@ -130,7 +130,16 @@ bonus0@RainFall:~$ nano /var/tmp/exploit.py
 
 ```
 
-buffer1 min, max = [20, 4095]
+buffer min, max = [20, 4095]
+
+```
+  0x080484c8 <+20>:	movl   $0x1000,0x8(%esp)  ===> 4096
+   0x080484d0 <+28>:	lea    -0x1008(%ebp),%eax
+   0x080484d6 <+34>:	mov    %eax,0x4(%esp)
+   0x080484da <+38>:	movl   $0x0,(%esp)
+   0x080484e1 <+45>:	call   0x8048380 <read@plt>
+   ```
+
 
 ```
 bonus0@RainFall:~$ python /var/tmp/exploit.py > /var/tmp/exp
