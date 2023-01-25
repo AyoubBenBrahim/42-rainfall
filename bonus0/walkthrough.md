@@ -130,6 +130,7 @@ bonus0@RainFall:~$ nano /var/tmp/exploit.py
 
 ```
 
+buffer1 min, max = [20, 4095]
 
 ```
 bonus0@RainFall:~$ python /var/tmp/exploit.py > /var/tmp/exp
