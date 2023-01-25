@@ -1,10 +1,11 @@
 ```
-ROP, or "Return-oriented Programming," is a technique used in binary exploitation to bypass memory-based protection mechanisms 
-such as Data Execution Prevention (DEP) and Address Space Layout Randomization (ASLR). The idea behind ROP is to chain together
-small snippets of code, called "gadgets," that are already present in the program's memory. These gadgets are used
-to perform malicious actions, such as running shellcode to gain control of the system. Essentially, ROP allows an attacker
-to execute arbitrary code by redirecting the program's execution flow to a series of pre-existing code snippets,
-rather than injecting new code into memory.
+ROP, or "Return-oriented Programming," is a technique used in binary exploitation to bypass
+memory-based protection mechanisms such as Data Execution Prevention (DEP) and 
+Address Space Layout Randomization (ASLR). The idea behind ROP is to chain together small snippets
+of code, called "gadgets," that are already present in the program's memory. These gadgets are used 
+to perform malicious actions, such as running shellcode to gain control of the system. Essentially,
+ROP allows an attacker to execute arbitrary code by redirecting the program's execution flow 
+to a series of pre-existing code snippets, rather than injecting new code into memory.
 ```
 
 
