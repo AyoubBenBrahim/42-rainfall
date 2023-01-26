@@ -1,4 +1,4 @@
-the follwing is forked (from)[https://github.com/maxisimo/42-RainFall/blob/main/doc/asm_x86/main_args.md]
+the follwing is forked [from](https://github.com/maxisimo/42-RainFall/blob/main/doc/asm_x86/main_args.md)
 
 # Getting command line parameters
 
