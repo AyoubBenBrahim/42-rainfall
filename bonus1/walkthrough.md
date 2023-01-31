@@ -1,6 +1,7 @@
-
-
-
+```
+if (number == 0x574f4c46) 
+    execl("/bin/sh", "sh", 0);
+```
 ```
 run "8" "AAAA"
 
