@@ -25,8 +25,9 @@ run "9" $(python -c 'print "A" * 40')
 
 36 is the maximum number of bytes that can be copied into the buffer (9 * 4).
 
-
-```
+ -2^31 to 2^31 – 1
+ 
+ ```
 
 The "memcpy" function is vulnerable to buffer overflow attacks if the size of the destination buffer is smaller than the size of the source buffer. 
 
