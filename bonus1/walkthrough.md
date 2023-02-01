@@ -1,5 +1,5 @@
 ```
-if (number == 0x574f4c46) 
+if (argv1 == 0x574f4c46) 
     execl("/bin/sh", "sh", 0);
 ```
 ```
