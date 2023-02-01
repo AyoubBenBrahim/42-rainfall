@@ -31,7 +31,18 @@ run "9" $(python -c 'print "A" * 40')
 The "memcpy" function is vulnerable to buffer overflow
 
 
-10000000000000000000000000001011
+```
+unhex 574f4c46 | rev ; echo
+FLOW
+```
+
+00000000000000000000000000101100 = 44
+change sign
+10000000000000000000000000001011 = -44
+-2147483604
+
+10000000000000000000000000101100
+
 
 Decimal from signed 2's complement
 -2147483637
