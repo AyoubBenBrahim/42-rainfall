@@ -25,8 +25,6 @@ mov    %eax,(%esp)
 call   0x80483c0 <strncpy@plt>
 
 
-
-
 movl   $0x20, 0x4(%esp)   ; maximum number of characters to copy (n)
 mov    %eax, (%esp)       ; source buffer (src)
 lea    0x50(%esp), %eax   ; destination buffer (dest)
