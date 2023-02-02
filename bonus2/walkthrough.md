@@ -11,7 +11,37 @@ to consecutive memory locations starting from the address specified by %es:%edi.
 
 This is a kind of memset on the buffer start at address esp+0x50
 
+```
+mov    0xc(%ebp),%eax
+add    $0x8,%eax
+mov    (%eax),%eax
 
+movl   $0x20,0x8(%esp)
+mov    %eax,0x4(%esp)
+
+lea    0x50(%esp),%eax
+add    $0x28,%eax
+mov    %eax,(%esp)
+call   0x80483c0 <strncpy@plt>
+
+
+
+
+movl   $0x20, 0x4(%esp)   ; maximum number of characters to copy (n)
+mov    %eax, (%esp)       ; source buffer (src)
+lea    0x50(%esp), %eax   ; destination buffer (dest)
+
+The parameters are passed in the following order:
+dest: 0x50(%esp)
+src: %eax
+n: 0x20
+
+strncpy((char*)0x50(%esp) + 0x28, (const char*)%eax, 0x20);
+
+
+buffer = 0x50
+strncpy(buffer + 0x28, argv[2], 0x20);
+```
 
 
 
