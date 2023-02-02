@@ -239,7 +239,7 @@ $esp : for register ESP (Stack Pointer)
  
 |  2 | [ebp + 16] (3rd function argument)
  
-|  5 | [ebp + 12] (2nd argument)   ..... argv1
+|  5 | [ebp + 12] (2nd argument)   ..... argv (av1 = ebp+12 + 4) (av2 = [ebp+0xc] + 8)
  
 | 10 | [ebp + 8]  (1st argument)    .... argc
  
