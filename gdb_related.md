@@ -276,5 +276,15 @@ with the return address of the function also being pushed onto the stack.
 |------------------------|
 
 
+av[1]
+
+mov    0xc(%ebp),%eax
+add    $0x4,%eax
+
+av[2]
+
+mov    0xc(%ebp),%eax
+add    $0x8,%eax
+
 ```
 
