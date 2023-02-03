@@ -12,6 +12,16 @@ to consecutive memory locations starting from the address specified by %es:%edi.
 This is a kind of memset on the buffer start at address esp+0x50
 
 ```
+(gdb) x/4wx $esp+0x50
+0xbffff680:	0x08048287	0x00000000	0x00c30000	0x00000001
+
+(gdb) rep stos %eax,%es:(%edi) 
+
+(gdb) x/4wx $esp+0x50
+0xbffff680:	0x00000000	0x00000000	0x00000000	0x00000000
+```
+
+```
 mov    0xc(%ebp),%eax
 add    $0x8,%eax
 mov    (%eax),%eax
