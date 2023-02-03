@@ -35,14 +35,14 @@ mov    %eax,(%esp)
 call   0x80483c0 <strncpy@plt>
 
 
-movl   $0x20, 0x4(%esp)   ; maximum number of characters to copy (n)
+movl   $0x20, 0x4(%esp)   ; maximum number of characters to copy (32)
 mov    %eax, (%esp)       ; source buffer (src)
 lea    0x50(%esp), %eax   ; destination buffer (dest)
 
 The parameters are passed in the following order:
 dest: 0x50(%esp)
 src: %eax
-n: 0x20
+n: 0x20 (32)
 
 strncpy((char*)0x50(%esp) + 0x28, (const char*)%eax, 0x20);
 
