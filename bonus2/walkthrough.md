@@ -94,6 +94,7 @@ strcat("Goedemiddag! " , av[1])
 puts("Goedemiddag! AAAA")
 ```
 
+LANG=fi
 
 ```
 run $(python -c 'print "A" * 40') "aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa"
