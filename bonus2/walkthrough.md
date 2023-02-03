@@ -95,6 +95,19 @@ puts("Goedemiddag! AAAA")
 ```
 
 
+```
+run $(python -c 'print "A" * 40') "aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa"
+Hyvää päivää AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaabaaacaaadaaaeaaafaaagaaahaaa
+
+SIGSEGV
+0x61666161
+
+cyclic -l 0x61666161 = 18
+```
+
+
+
+
 
 
 
