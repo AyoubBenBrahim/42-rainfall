@@ -121,6 +121,10 @@ $ cat /home/user/bonus3/.pass
 71d449df0f960b36e0055eb58c14d0f5d0ddc0b35328d657f91cf0df15910587
 ```
 
+Using the full path to a binary:
+
+Reproducibility: When you use the full path, it becomes easier to reproduce the same behavior across different systems or environments.
+
 
 
 
