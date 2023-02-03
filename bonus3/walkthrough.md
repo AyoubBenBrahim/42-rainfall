@@ -12,6 +12,8 @@
 0x80486f0:	 "r"
 (gdb) x/s $eax
 0x80486f2:	 "/home/user/end/.pass"
+
+fopen("/home/user/end/.pass", "r")
 ```
 
 
