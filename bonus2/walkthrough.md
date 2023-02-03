@@ -74,7 +74,25 @@ $3 = 32
  copied all content of buffer to esp
 ```
 
+function greetuser
 
+```
+0x08048494 <+16>:	 cmp    $0x2,%eax
+0x080484e9 <+101>:	mov    $0x804872a,%edx
+
+(gdb) x/s 0x804872a
+0x804872a:	 "Goedemiddag! "
+
+   0x0804850a <+134>:	lea    0x8(%ebp),%eax
+   0x0804850d <+137>:	mov    %eax,0x4(%esp)
+   0x08048511 <+141>:	lea    -0x48(%ebp),%eax
+=> 0x08048514 <+144>:	mov    %eax,(%esp)
+   0x08048517 <+147>:	call   0x8048370 <strcat@plt>
+
+strcat("Goedemiddag! " , av[1])
+
+puts("Goedemiddag! AAAA")
+```
 
 
 
