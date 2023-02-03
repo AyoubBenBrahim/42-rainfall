@@ -67,6 +67,13 @@ $3 = 32
 
 ```
 
+```
+ 0x08048629 <+256>:	rep movsl %ds:(%esi),%es:(%edi)
+ 
+ Move every dword of esi in edi
+ copied all content of buffer to esp
+```
+
 
 
 
