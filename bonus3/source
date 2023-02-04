@@ -20,4 +20,4 @@
       if (strcmp(&var_98, argv[1]) != 0)
           puts(&var_56)
       else
-          execl("/bin/sh", &data_8048707, 0)
+          execl("/bin/sh", "sh", 0);
