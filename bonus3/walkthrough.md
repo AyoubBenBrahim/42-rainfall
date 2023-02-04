@@ -43,6 +43,31 @@ ecx            0x0	0
 edx            0x21	33
 ```
 
+```
+size_t fread( *ptr, size_t size, size_t nitems, FILE *stream);
+
+    0x0804854d <+89>:	lea    0x18(%esp),%eax
+    0x08048551 <+93>:	mov    0x9c(%esp),%edx
+    0x08048558 <+100>:	mov    %edx,0xc(%esp)
+    0x0804855c <+104>:	movl   $0x42,0x8(%esp)
+    0x08048564 <+112>:	movl   $0x1,0x4(%esp)
+    0x0804856c <+120>:	mov    %eax,(%esp)
+    0x0804856f <+123>:	call   0x80483d0 <fread@plt>
+
+
+the parameters for the fread function can be identified as follows:
+
+%eax: This is the destination buffer, ptr, where the read data will be stored.
+
+0x42: This is the size of each item to be read, size.
+
+0x1: This is the count of the number of items to be read, count.
+
+%edx: This is the file stream, stream.
+
+
+```
+
 
 
 
