@@ -27,9 +27,7 @@ https://www.geeksforgeeks.org/g-fact-31/
 #include<stdio.h>
 
 int main()
-
 {
-
    int c;
    printf("123456789A%n     \n", &c);
    printf("%d", c);
@@ -37,16 +35,13 @@ int main()
     
     // output
     // 123456789A     
-    // 10
-    
+    // 10   
 }
 ```
 
 "the %n parameter, which writes the number of bytes already printed, into a variable of our choice.
 The address of the variable is given to the format function by placing an integer pointer as parameter onto the stack."
 https://cs155.stanford.edu/papers/formatstring-1.2.pdf
-
-
 
 ```
 (gdb) run <<< "AAAA %p %p %p %p %p"
