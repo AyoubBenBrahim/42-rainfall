@@ -16,6 +16,33 @@
 fopen("/home/user/end/.pass", "r")
 ```
 
+```
+
+ repetitions, stores the contents of eax into where edi points to,
+ incrementing or decrementing edi (depending on the direction flag) by 4 bytes each time. 
+ 
+ Each iteration, ecx is decremented by 1, and the loop stops when it reaches zero.
+ For stos, the only thing you will observe is that ecx is cleared at the end.
+ 
+ 
+    0x08048528 <+52>:	mov    $0x21,%edx.    (33)
+    0x0804852d <+57>:	mov    %ebx,%edi
+    0x0804852f <+59>:	mov    %edx,%ecx
+=>  0x08048531 <+61>:	rep stos %eax,%es:(%edi)
+
+ecx            0x21	33
+edx            0x21	33
+
+ecx            0x13	19
+edx            0x21	33
+
+ecx            0x1	1
+edx            0x21	33
+
+ecx            0x0	0
+edx            0x21	33
+```
+
 
 
 
