@@ -42,7 +42,8 @@ int main()
 }
 ```
 
-"the %n parameter, which writes the number of bytes already printed, into a variable of our choice. The address of the variable is given to the format function by placing an integer pointer as parameter onto the stack."
+"the %n parameter, which writes the number of bytes already printed, into a variable of our choice.
+The address of the variable is given to the format function by placing an integer pointer as parameter onto the stack."
 https://cs155.stanford.edu/papers/formatstring-1.2.pdf
 
 
@@ -77,7 +78,8 @@ stack.
 ```
 Overwriting memory at any location
 
-In printf(), %n is a special case format specifier. Instead of being replaced by a function argument, %n will cause the number of characters written so far to be stored into the corresponding function argument.
+In printf(), %n is a special case format specifier. Instead of being replaced by a function argument,
+%n will cause the number of characters written so far to be stored into the corresponding function argument.
 
 For example, the following code will store the integer 5 into the variable num_char.
 
