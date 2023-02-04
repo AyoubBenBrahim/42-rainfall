@@ -17,7 +17,7 @@
       fread(&var_56, 1, 0x41, eax)
       fclose(eax)
       
-      if (strcmp(&var_98, argv[1]) != 0)
+      if (strcmp(&var_98, argv[1]) != 0) // strcmp(buffer, av[1])
           puts(&var_56)
       else
           execl("/bin/sh", "sh", 0);
