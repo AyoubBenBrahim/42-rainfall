@@ -18,4 +18,4 @@ else
     
     __setresuid(eax_6, eax_6, eax_6)
     
-    execv(0x80c5348, &var_20)  {"/bin/sh"}
+    execv("/bin/sh", 0);
