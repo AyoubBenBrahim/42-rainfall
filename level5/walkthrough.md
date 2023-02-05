@@ -55,6 +55,8 @@ cat /home/user/level6/.pass 1>&2
 d3b7bf1025225bd715fa8ccb54ef06ca70b9125ac855aeab4878217177f41a31
  ```
  
+ `"%134513824d%4$n"`
+ 
  Rappel:
 ``` 
 (stdin), fd 0
