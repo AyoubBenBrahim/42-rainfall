@@ -55,8 +55,17 @@ cat /home/user/level6/.pass 1>&2
 d3b7bf1025225bd715fa8ccb54ef06ca70b9125ac855aeab4878217177f41a31
  ```
  
+ Rappel:
+``` 
+(stdin), fd 0
+(stdout),fd 1
+(stderr),fd 2
 
-
+pwd 1>&2, the standard output of the pwd command,
+which would normally be printed to the terminal,
+is instead redirected to the standard error,
+and will be printed to the terminal as an error message.
+```
 
 
 
