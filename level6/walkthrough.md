@@ -1,3 +1,22 @@
+TLDR
+```
+   0x0804848c <+16>:	call   0x8048350 <malloc@plt>
+   0x08048491 <+21>:	mov    %eax,0x1c(%esp)
+   .
+   .
+   .
+   .
+   0x080484ba <+62>:	mov    0x1c(%esp),%eax     dst = buffer ptr allocated by first malloc
+   0x080484be <+66>:	mov    %edx,0x4(%esp)      src = av1 
+   0x080484c2 <+70>:	mov    %eax,(%esp)
+   0x080484c5 <+73>:	call   0x8048340 <strcpy@plt>
+   
+   char *strcpy( *dst, *src);
+   
+   last thing called is unprotected strcpy == overwrite the eip
+```
+
+
 ```
 0x08048454  n // shell
 0x08048468  m // call puts
