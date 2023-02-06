@@ -16,6 +16,7 @@ TLDR
    last thing called is unprotected strcpy == overwrite the eip
 ```
 
+details
 
 ```
 0x08048454  n // shell
