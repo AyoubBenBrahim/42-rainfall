@@ -31,6 +31,7 @@ TLDR
     0x08048552 <+49>:	mov    0x1c(%esp),%eax
     0x08048556 <+53>:	mov    %edx,0x4(%eax)       *malloc1 + 4 = malloc1[1] = edx = allcated
     
+    after last strcpy
     
     b *main+161
     
