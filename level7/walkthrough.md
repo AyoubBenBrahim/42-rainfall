@@ -1,6 +1,44 @@
 Heap exploit
 
 
+TLDR
+
+```
+    malloc1 = malloc(8) // 0x0804a008
+    malloc1[0] = 1
+    malloc1[1] = malloc(8) // 0x0804a018
+
+    malloc2 = malloc(8) // 0x0804a028
+    malloc2[0] = 2
+    malloc2[1] = malloc(8) // 0x0804a038
+
+    strcpy(mOne[1], argv[1])
+    strcpy(mTwo[1], argv[2])
+    
+    
+    movl $0x1, (%eax)
+    The instruction moves the value 0x1 into the memory location pointed to by the %eax.
+    (%eax) ==> memory reference.
+    
+    0x08048531 <+16>:	call   0x80483f0 <malloc@plt>
+    0x08048536 <+21>:	mov    %eax,0x1c(%esp)
+    0x0804853a <+25>:	mov    0x1c(%esp),%eax
+    0x0804853e <+29>:	movl   $0x1,(%eax)         malloc1[0] = 1
+    
+    0x08048544 <+35>:	movl   $0x8,(%esp)
+    0x0804854b <+42>:	call   0x80483f0 <malloc@plt>
+    0x08048550 <+47>:	mov    %eax,%edx
+    0x08048552 <+49>:	mov    0x1c(%esp),%eax
+    0x08048556 <+53>:	mov    %edx,0x4(%eax)       *malloc1 + 4 = malloc1[1] = edx = allcated
+    
+    
+    b *main+161
+    
+    
+```
+
+
+
 ```
 0x080484f4  m
 0x08048521  main
