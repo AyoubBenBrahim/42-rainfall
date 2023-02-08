@@ -50,10 +50,8 @@ define hook-stop
 x/20wx 0x0804a000
 echo ------------[service] -----------------\n
 x/s service
-x service
 echo ------------[auth] --------------------\n
 x/s auth
-x auth
 echo ------------[auth+32] -----------------\n
 x/s auth+0x20
 echo ---------------------------------------\n
