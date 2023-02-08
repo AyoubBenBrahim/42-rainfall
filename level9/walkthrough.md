@@ -37,7 +37,14 @@ call setAnnotation(av1)
    
 x/s *0x08048848
    0x804873a      ==> N::operator+(N&)
-   
+
+ni
+
+=> 0x08048693 <+159>:	call   *%edx
+
+(gdb) i r $edx
+edx            0x804873a   ==> N::operator+(N&)
+
 
 ```
 
