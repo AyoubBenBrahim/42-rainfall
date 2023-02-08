@@ -31,10 +31,10 @@ An instruction at 0x08048617 calls _Znwj@plt which is a memory allocation functi
    0x0804871a <+12>:    call   0x8048520 <strlen@plt>
    0x0804871f <+17>:    mov    0x8(%ebp),%edx
    0x08048722 <+20>:    add    $0x4,%edx
-   0x08048725 <+23>:    mov    %eax,0x8(%esp)
+   0x08048725 <+23>:    mov    %eax,0x8(%esp)         n bytes to copy by memcpy
    0x08048729 <+27>:    mov    0xc(%ebp),%eax
-   0x0804872c <+30>:    mov    %eax,0x4(%esp)
-   0x08048730 <+34>:    mov    %edx,(%esp)
+   0x0804872c <+30>:    mov    %eax,0x4(%esp)         src
+   0x08048730 <+34>:    mov    %edx,(%esp)            dst
    0x08048733 <+37>:    call   0x8048510 <memcpy@plt>
    0x08048738 <+42>:    leave
    0x08048739 <+43>:    ret
@@ -45,26 +45,24 @@ Subtracts 0x18 from the ESP, which probably means it is allocating 0x18 bytes of
 The instruction at 0x08048714 loads the value of the first argument passed 
 to the function (a pointer to a char) into EAX.
 
-The instruction at 0x0804871a calls the strlen@plt function, 
-passing the pointer in EAX as an argument.
+The instruction at 0x0804871a calls the strlen@plt function, passing the pointer in EAX as an argument.
 This probably calculates the length of a string.
 
 The instruction at 0x0804871f loads the second argument passed to the function (a pointer to a char) into EDX.
 
 The instruction at 0x08048722 adds 4 to EDX.
 
-The instruction at 0x08048725 stores the length of the string into [ESP + 0x8],
- the third argument for the next function call.
+The instruction at 0x08048725 stores the length of the string into [ESP + 0x8], the third argument for the next function call.
 
 The instruction at 0x08048729 loads the first argument passed to the function (a pointer to a char) into EAX, 
 
-and the instruction at 0x0804872c loads the value of EAX into [ESP + 0x4],
-the second argument for the next function call.
+and the instruction at 0x0804872c loads the value of EAX into [ESP + 0x4], the second argument for the next function call.
 
 The instruction at 0x08048730 loads the value of EDX into [ESP], the first argument for the next function call.
 
 The instruction at 0x08048733 calls the memcpy@plt function, passing the three arguments on the stack.
 ```
+void *memcpy(void *dst,  void *src, size_t n);
 
 ```
 assembler code for function  N::operator+(N&):
@@ -81,20 +79,17 @@ assembler code for function  N::operator+(N&):
 This appears to be x86 assembly code for a C++ member function named "N::operator+",
 which is likely an operator overload for the '+' operator for a class 'N'.
 
-The instruction at 0x0804873d loads the value of the first argument passed to the function
-(a pointer to an object of class N) into EAX.
+The instruction at 0x0804873d loads the value of the first argument passed to the function (a pointer to an object of class N) into EAX.
 
 The instruction at 0x08048740 loads the value of the member variable at offset 0x68(%eax) into EDX.
 
-The instruction at 0x08048743 loads the value of the second argument passed to the function
-(a pointer to an object of class N) into EAX.
+The instruction at 0x08048743 loads the value of the second argument passed to the function (a pointer to an object of class N) into EAX.
 
 The instruction at 0x08048746 loads the value of the member variable at offset 0x68(%eax) into EAX.
 
 The instruction at 0x08048749 adds the values in EDX and EAX, and stores the result back in EAX.
 
-It loads the value of member variable at offset 0x68 for both of the objects passed as arguments,
-adds them and returns the sum as the result.
+It loads the value of member variable at offset 0x68 for both of the objects passed as arguments, adds them and returns the sum as the result.
 ```
 
 ```
@@ -111,25 +106,19 @@ N::setAnnotation( OBJECT_1, argv[1])
 return (**OBJECT_2)(OBJECT_2, OBJECT_1)
 
 
-it creates a new block of memory of size 108 bytes using the operator new function and stores its address
-in the variable "OBJECT_1".
+it creates a new block of memory of size 108 bytes using the operator new function and stores its address in the variable "OBJECT_1".
 
-it calls the constructor of the class N passing in the address of the block of memory stored in "OBJECT_1" and
-an integer value of 5.
+it calls the constructor of the class N passing in the address of the block of memory stored in "OBJECT_1" and an integer value of 5.
 
-it creates another new block of memory of size 108 bytes using the operator new function and stores its
-address in the variable "OBJECT_2".
+it creates another new block of memory of size 108 bytes using the operator new function and stores its address in the variable "OBJECT_2".
 
-it calls the constructor of the class N passing in the address of the block of memory stored in "OBJECT_2"
-and an integer value of 6.
+it calls the constructor of the class N passing in the address of the block of memory stored in "OBJECT_2" and an integer value of 6.
 
 it calls the setAnnotation member function of class N passing in the address of the block of memory
 stored in "OBJECT_1" and the first argument passed to the program (argv[1]).
 
 it returns the result of calling the operator() member function of the object pointed to by "OBJECT_2"
-passing in the address of the block of memory stored in "OBJECT_2" and the address of the block of 
-memory stored in "OBJECT_1".
+passing in the address of the block of memory stored in "OBJECT_2" and the address of the block of  memory stored in "OBJECT_1".
 
-it seems to be creating two objects of class N and passing them to some other function which 
-then calls a member function on those objects.
+it seems to be creating two objects of class N and passing them to some other function which then calls a member function on those objects.
 ```
