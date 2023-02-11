@@ -49,6 +49,18 @@ size_t fread( *ptr, size_t size, size_t nitems, FILE *stream);
 ```
 
 ```
+
+ AT&T
+  0x08048584 <+144>:	call   0x8048430 <atoi@plt>
+  0x08048589 <+149>:	movb   $0x0,0x18(%esp,%eax,1)
+
+INTEL 
+
+0x08048589 <+149>:	mov    BYTE PTR [esp+eax*1+24],0
+[buffer+eax] ~ [buffer+atoi(argv[1])] => buffer[atoi(argv[1]] = 0
+
+```
+```
 *(&var_98 + atoi(argv[1])) = 0      // buffer[atoi(av[1])] = 0
 
  if (strcmp(&var_98, argv[1]) == 0) // strcmp(buffer, av[1])
