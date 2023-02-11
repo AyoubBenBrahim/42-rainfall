@@ -65,6 +65,15 @@ $1 = 40
 (gdb) p/d 0xbffff6d8 - 0xbffff6b8
 $3 = 32
 
+==
+
+strncpy size buffer
+
+(gdb) p 0x28
+$1 = 40
+
+(gdb) p 0x20
+$2 = 32
 ```
 
 ```
