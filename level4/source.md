@@ -1,5 +1,5 @@
 
-```
+```c
 main()
 {
   return n()
