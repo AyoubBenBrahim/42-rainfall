@@ -1,4 +1,4 @@
-the follwing is forked [from](https://github.com/maxisimo/42-RainFall/blob/main/doc/asm_x86/main_args.md)
+the follwing is forked [from](https://github.com/maxisimo/42-RainFall/blob/main/doc/asm_x86/main_args.md) with few updates
 
 # Getting command line parameters
 
@@ -68,3 +68,61 @@ Good, we retrieved the first parameter. As we said upper, this will be exactly t
    0x08048ecf <+26>:    mov    eax,DWORD PTR [eax]
 ```
 <+23> : We add `0x8` to `eax` to reach `argv + 2` (argv[2]) ! 
+
+
+
+## example
+
+```
+(gdb) x/s $ebp+0xc
+0xffffd6f4:	 
+(gdb) x/s 0xffffd6f4
+0xffffd6f4:	 
+(gdb) x/s *0xffffd6f4
+0xffffd784:	 
+(gdb) x/s **0xffffd6f4
+0xffffd8a2:	 "/home/users/level07/level07"
+```
+
+the same thing could be acheived with print
+```
+(gdb) x/s **(char ***)($ebp+0xc)
+0xffffd8a2:	 "/home/users/level07/level07"
+```
+
+```
+
+-----------------------
+|       Memory        |
+-----------------------
+| Address: 0xffffd6f4 |
+| Value:   0x41414141  | <-- $ebp+0xc
+-----------------------
+             |
+             v
+-----------------------
+|      Pointer        |
+-----------------------
+| Address: 0x41414141  | <-- *0xffffd6f4
+| Value:   0x42424242  |
+-----------------------
+             |
+             v
+-----------------------
+|    Double Pointer   |
+-----------------------
+| Address: 0x42424242  | <-- **0xffffd6f4
+| Value:   0x43434343  |
+-----------------------
+             |
+             v
+-----------------------
+|      Memory         |
+-----------------------
+| Address: 0x43434343 |
+| Value:   "/home/users/level07/level07" |
+-----------------------
+
+```
+
+
