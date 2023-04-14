@@ -90,8 +90,8 @@ or simply
 ```
 the same thing could be acheived with print
 ```
-(gdb) x/s **(char ***)($ebp+0xc)
-0xffffd8a2:	 "/home/users/level07/level07"
+(gdb) p **(char ***)($ebp+0xc)
+$18 = 0xffffd8a2 "/home/users/level07/level07"
 ```
 
 
