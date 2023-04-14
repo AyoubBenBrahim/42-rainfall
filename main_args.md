@@ -83,12 +83,18 @@ Good, we retrieved the first parameter. As we said upper, this will be exactly t
 (gdb) x/s **0xffffd6f4
 0xffffd8a2:	 "/home/users/level07/level07"
 ```
-
+or simply
+```
+(gdb) x/s **(char ***)($ebp+12)
+0xffffd8a2:	 "/home/users/level07/level07"
+```
 the same thing could be acheived with print
 ```
 (gdb) x/s **(char ***)($ebp+0xc)
 0xffffd8a2:	 "/home/users/level07/level07"
 ```
+
+
 
 ```
 
