@@ -1,5 +1,6 @@
 "In God I trust, all others I pen-test" - Binoj Koshy, cyber security expert
 
+understanding the stack => https://manybutfinite.com/post/journey-to-the-stack/
 
 read all the articles in the hackndo blog
 
