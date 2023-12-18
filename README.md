@@ -16,6 +16,8 @@ https://www.youtube.com/watch?v=1S0aBV-Waeo
 
 https://www.youtube.com/watch?v=Uk-xv8uxiJo
 
+good https://insecure.org/stf/smashstack.html
+
 Intro to Binary Exploitation (Pwn)
 a playlist
 
