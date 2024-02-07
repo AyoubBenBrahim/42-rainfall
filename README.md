@@ -6,6 +6,8 @@ p1 - https://manybutfinite.com/post/journey-to-the-stack/
 
 p2 - https://manybutfinite.com/post/epilogues-canaries-buffer-overflows/
 
+stack https://youtu.be/N3o5yHYLviQ
+
 3 - stack and heap , good read https://medium.com/@c0ngwang/the-art-of-exploiting-heap-overflow-part-2-1bd24a5856d0
 
 read all the articles in the hackndo blog
